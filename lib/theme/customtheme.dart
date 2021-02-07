@@ -15,6 +15,9 @@ class CustomTheme with ChangeNotifier {
         primaryColor: primary_background_one,
         scaffoldBackgroundColor: primary_background_one,
         //fontFamily: 'Montserrat', //3
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: primary_background_card_two,
+        ),
         textTheme: ThemeData.light().textTheme,
         buttonTheme: ButtonThemeData( // 4
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
@@ -28,6 +31,9 @@ class CustomTheme with ChangeNotifier {
         scaffoldBackgroundColor: primary_background_two,
         //fontFamily: 'Montserrat',
         textTheme: ThemeData.dark().textTheme,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: primary_background_card_one,
+        ),
         buttonTheme: ButtonThemeData(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           buttonColor: primary_button,

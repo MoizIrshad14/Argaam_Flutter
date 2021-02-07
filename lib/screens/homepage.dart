@@ -8,8 +8,6 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
-  int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,49 +27,6 @@ class _homepageState extends State<homepage> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: FFNavigationBar(
-        theme: FFNavigationBarTheme(
-          barBackgroundColor: Colors.white,
-          selectedItemBorderColor: Colors.transparent,
-          selectedItemBackgroundColor: Colors.green,
-          selectedItemIconColor: Colors.white,
-          selectedItemLabelColor: Colors.black,
-          showSelectedItemShadow: false,
-          barHeight: 70,
-        ),
-        selectedIndex: selectedIndex,
-        onSelectTab: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        items: [
-          FFNavigationBarItem(
-            iconData: Icons.calendar_today,
-            label: 'Home',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.people,
-            label: 'Financial Reports',
-            selectedBackgroundColor: Colors.orange,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.attach_money,
-            label: 'My Companies',
-            selectedBackgroundColor: Colors.purple,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.note,
-            label: 'Events',
-            selectedBackgroundColor: Colors.blue,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.settings,
-            label: 'Menu',
-            selectedBackgroundColor: Colors.red,
-          ),
-        ],
       ),
     );
   }
