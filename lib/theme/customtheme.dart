@@ -18,6 +18,10 @@ class CustomTheme with ChangeNotifier {
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_two,
         ),
+        inputDecorationTheme: const InputDecorationTheme(
+          labelStyle: TextStyle(color: Colors.black),
+          hintStyle: TextStyle(color: Colors.grey),
+        ),
         textTheme: ThemeData.light().textTheme,
         buttonTheme: ButtonThemeData( // 4
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
@@ -33,6 +37,10 @@ class CustomTheme with ChangeNotifier {
         textTheme: ThemeData.dark().textTheme,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_one,
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          labelStyle: TextStyle(color: Colors.white),
+          hintStyle: TextStyle(color: Colors.grey),
         ),
         buttonTheme: ButtonThemeData(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),

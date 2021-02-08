@@ -1,4 +1,5 @@
 import 'package:Argaam_Flutter/theme/config.dart';
+import 'package:Argaam_Flutter/widgets/appbar.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,7 @@ class _homepageState extends State<homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Argaam"),
-      ),
+      appBar: CustomAppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

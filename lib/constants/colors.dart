@@ -8,6 +8,7 @@ const primary_background_card_two = Color(0xFF1F1D2B);
 const primary_splash = Color(0xFFF58026);
 const primary_button = Color(0xFFF58026);
 const primary_tab = Color(0xFFF58026);
+const primary_orange = Color(0xFFF58026);
 const primary_text_one = Color(0xFF000000);
 const primary_text_two = Color(0xFF000000);
 const primary_text_three = Color(0xFF929497);
