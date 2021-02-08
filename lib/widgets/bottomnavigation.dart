@@ -1,4 +1,6 @@
+import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/screens/homepage.dart';
+import 'package:Argaam_Flutter/screens/login.dart';
 import 'package:Argaam_Flutter/screens/navigationdrawer.dart';
 import 'package:Argaam_Flutter/screens/streamer.dart';
 import 'package:Argaam_Flutter/screens/webviewmenu.dart';
@@ -14,7 +16,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
   int currentIndex = 0;
   final List<Widget> _children = [
     homepage(),
-    streamer(),
+    login(),
     webViewMenu(),
     webViewMenu(),
     navigationdrawer(),
@@ -28,8 +30,8 @@ class _bottomnavigationState extends State<bottomnavigation> {
           barBackgroundColor: Colors.white,
           selectedItemBorderColor: Colors.transparent,
           unselectedItemLabelColor: Colors.transparent,
-          selectedItemBackgroundColor: Colors.green,
-          unselectedItemBackgroundColor: Color(0xFF707070),
+          selectedItemBackgroundColor: primary_button,
+          unselectedItemBackgroundColor: primary_background_two,
           selectedItemIconColor: Colors.white,
           selectedItemLabelColor: Colors.black,
           showSelectedItemShadow: false,
@@ -49,22 +51,22 @@ class _bottomnavigationState extends State<bottomnavigation> {
           FFNavigationBarItem(
             iconData: Icons.people,
             label: 'Financial Reports',
-            selectedBackgroundColor: Colors.orange,
+            //selectedBackgroundColor: Colors.orange,
           ),
           FFNavigationBarItem(
             iconData: Icons.attach_money,
             label: 'My Companies',
-            selectedBackgroundColor: Colors.purple,
+            //selectedBackgroundColor: Colors.purple,
           ),
           FFNavigationBarItem(
             iconData: Icons.note,
             label: 'Events',
-            selectedBackgroundColor: Colors.blue,
+            //selectedBackgroundColor: Colors.blue,
           ),
           FFNavigationBarItem(
             iconData: Icons.settings,
             label: 'Menu',
-            selectedBackgroundColor: Colors.red,
+            //selectedBackgroundColor: Colors.red,
           ),
         ],
       ),
