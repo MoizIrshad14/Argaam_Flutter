@@ -1,7 +1,7 @@
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/screens/homepage.dart';
 import 'package:Argaam_Flutter/screens/login.dart';
-import 'package:Argaam_Flutter/screens/navigationdrawer.dart';
+import 'package:Argaam_Flutter/screens/menuScreen.dart';
 import 'package:Argaam_Flutter/screens/streamer.dart';
 import 'package:Argaam_Flutter/screens/webviewmenu.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
@@ -19,7 +19,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
     login(),
     webViewMenu(),
     webViewMenu(),
-    navigationdrawer(),
+    menuScreen(),
   ];
   @override
   Widget build(BuildContext context) {
