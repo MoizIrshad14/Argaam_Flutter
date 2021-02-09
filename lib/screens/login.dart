@@ -8,35 +8,7 @@ class login extends StatefulWidget {
   _loginState createState() => _loginState();
 }
 
-class _loginState extends State<login> with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _controller1;
-  AnimationController _controller2;
-  Animation<double> _animation;
-  Animation<double> _animation1;
-  Animation<double> _animation2;
-
-  bool dir = true;
-
-  @override
-  void initState() {
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _controller1 =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _controller2 =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _controller1.dispose();
-    _controller2.dispose();
-    super.dispose();
-  }
-
+class _loginState extends State<login> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   bool rememberMe = false;
   void _onRememberMeChanged(bool newValue) => setState(() {
@@ -52,16 +24,11 @@ class _loginState extends State<login> with TickerProviderStateMixin {
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    _animation = Tween<double>(begin: dir ? 0 : 1, end: dir ? 1 : 1)
-        .animate(_controller);
-    _animation1 = Tween<double>(begin: dir ? 0 : 1, end: dir ? 1 : 1)
-        .animate(_controller1);
-    _animation2 = Tween<double>(begin: dir ? 0 : 1, end: dir ? 1 : 1)
-        .animate(_controller2);
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
         body: ListView(
+          physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             // SizedBox(height: 15),
             // Container(
@@ -96,54 +63,44 @@ class _loginState extends State<login> with TickerProviderStateMixin {
             Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               child: TextField(
-                style: TextStyle(color: primary_text_one),
+                // style: TextStyle(color: primary_text_one),
                 controller: nameController,
                 decoration: InputDecoration(
                   focusedBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderSide: const BorderSide(color: orange_border, width: 2.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  border:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(15.0),
+                  enabledBorder:OutlineInputBorder(
+                    borderSide: const BorderSide(color: dark_blue_background, width: 2.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  suffixIcon: Icon(Icons.account_circle,
-                      color: primary_text_one, size: 25.0),
+                  prefixIcon: Icon(Icons.account_circle,
+                      color: primary_orange, size: 25.0),
                   filled: true,
-                  fillColor: primary_background_card_one,
-                  // enabledBorder: OutlineInputBorder(
-                  //     borderSide: const BorderSide(color: primary_text_one, width: 0.0)
-                  // ),
-                  //labelStyle: TextStyle(color: primary_text_one),
                   labelText: 'Username',
-                  errorStyle: TextStyle(
-                    color: primary_text_one,
-                  ),
                 ),
               ),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               child: TextField(
-                style: TextStyle(color: primary_text_one),
-                controller: nameController,
+                controller: passwordController,
                 decoration: InputDecoration(
                   focusedBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderSide: const BorderSide(color: orange_border, width: 2.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  border:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(15.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: dark_blue_background, width: 2.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  suffixIcon: Icon(Icons.remove_red_eye_outlined,
-                      color: primary_text_one, size: 25.0),
+                  prefixIcon: Icon(Icons.remove_red_eye_outlined,
+                      color: primary_orange, size: 25.0),
                   filled: true,
-                  fillColor: primary_background_card_one,
                   // enabledBorder: OutlineInputBorder(
                   //     borderSide: const BorderSide(color: primary_text_one, width: 0.0)
                   // ),
-                  labelStyle: TextStyle(color: primary_text_one),
+                  //labelStyle: TextStyle(color: primary_text_one),
                   labelText: 'Password',
                   errorStyle: TextStyle(
                     color: primary_text_one,
@@ -151,44 +108,48 @@ class _loginState extends State<login> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            //Remember ME
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Column(
+              padding: EdgeInsets.symmetric(horizontal: 40),
+              child: Row(
                 children: <Widget>[
+                  Text("Remember Me"),
                   Theme(
-                    data: ThemeData(unselectedWidgetColor: primary_button),
-                    child: new CheckboxListTile(
-                        title: Text('Remember me'),
-                        value: rememberMe,
-                        tristate: false,
-                        activeColor: primary_button,
-                        onChanged: (bool newValue) {
-                          setState(() {
-                            rememberMe = newValue;
-                          });
-                        }),
+                    data: Theme.of(context).copyWith(
+                      unselectedWidgetColor: Colors.orange,
+                    ),
+                    child: Checkbox(
+                      checkColor: Colors.black,
+                      activeColor: Colors.orange,
+                      value: rememberMe,
+                      onChanged: (bool value) {
+                        setState(() {
+                          rememberMe = value;
+                        });
+                      },
+                    ),
                   ),
                 ],
               ),
             ),
-            Padding(
+            //Login Button
+            Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-              child: Container(
-                height: 55,
-                child: RaisedButton(
-                    child: Text("Register Now",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            color: Colors.white)),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => homepage()),
-                      );
-                    }),
-              ),
+              height: 80,
+              child: RaisedButton(
+                  child: Text("Register Now",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          color: Colors.white)),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => homepage()),
+                    );
+                  }),
             ),
+            //-OR-
             Container(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               child: Row(
@@ -214,62 +175,38 @@ class _loginState extends State<login> with TickerProviderStateMixin {
                 ],
               ),
             ),
+            //Social Sign in
             Container(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 60),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  RotationTransition(
-                    turns: _animation,
-                    child: MaterialButton(
-                        onPressed: () {
-                          _controller.forward(from: 0);
-                          setState(() {
-                            dir = !dir;
-                          });
-                          _displaySnackBar(context);
-                        },
-                        color: Colors.white,
-                        height: 60,
-                        shape: CircleBorder(),
-                        child: Image(
-                            image: AssetImage("assets/images/Gmail.png"),
-                            height: 30,
-                            color: Colors.black)),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(shape: CircleBorder(), minimumSize: Size(60, 60)),
+                      onPressed: () {
+                        _displaySnackBar(context);
+                      },
+                      child: ImageIcon(
+                        AssetImage('assets/images/Gmail.png'),
+                      )
                   ),
-                  RotationTransition(
-                    turns: _animation1,
-                    child: MaterialButton(
-                        onPressed: () {
-                          _controller1.forward(from: 0);
-                          //setState(() {dir = !dir;});
-                          _displaySnackBar(context);
-                        },
-                        color: Colors.white,
-                        height: 60,
-                        shape: CircleBorder(),
-                        child: Image(
-                            image: AssetImage("assets/images/Apple.png"),
-                            height: 30,
-                            color: Colors.black)),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(shape: CircleBorder(), minimumSize: Size(60, 60)),
+                      onPressed: () {
+                        _displaySnackBar(context);
+                      },
+                      child: ImageIcon(
+                        AssetImage('assets/images/Apple.png'),
+                      )
                   ),
-                  RotationTransition(
-                    turns: _animation2,
-                    child: MaterialButton(
-                        onPressed: () {
-                          _controller2.forward(from: 0);
-                          setState(() {
-                            dir = !dir;
-                          });
-                          _displaySnackBar(context);
-                        },
-                        color: Colors.white,
-                        height: 60,
-                        shape: CircleBorder(),
-                        child: Image(
-                            image: AssetImage("assets/images/Facebook.png"),
-                            height: 30,
-                            color: Colors.black)),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(shape: CircleBorder(), minimumSize: Size(60, 60)),
+                      onPressed: () {
+                        _displaySnackBar(context);
+                      },
+                      child: ImageIcon(
+                        AssetImage('assets/images/Facebook.png'),
+                      )
                   ),
                 ],
               ),
