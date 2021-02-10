@@ -26,16 +26,24 @@ class homeslider extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top:55.0),
-                  child: Row(
-                      children: [
-                        Text("أرجعام حصري",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                        Text(" | 11/12/2020")
-                      ]
-                  ),
+                  padding: const EdgeInsets.only(top: 55.0),
+                  child: Row(children: [
+                    Text(
+                      "أرجعام حصري",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(" | 11/12/2020")
+                  ]),
                 ),
-                Text("حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                Text("مليار ريال للسنة المالية 2019",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                Text(
+                  "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "مليار ريال للسنة المالية 2019",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,22 +51,30 @@ class homeslider extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(left:5),
+                            padding: EdgeInsets.only(left: 5),
                             child: Icon(Icons.access_time)),
-                        Text("قبل 45 دقيقة",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)
+                        Text(
+                          "قبل 45 دقيقة",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                     Row(
                       children: [
-                        Text("45",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                        Text(
+                          "45",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                         Container(
-                            padding: EdgeInsets.only(right:5),
+                            padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.messenger_outline)),
                         Container(
-                            padding: EdgeInsets.only(right:5),
+                            padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.favorite_outline)),
                         Container(
-                            padding: EdgeInsets.only(right:5,left: 10),
+                            padding: EdgeInsets.only(right: 5, left: 10),
                             child: Icon(Icons.arrow_upward)),
                       ],
                     )
@@ -87,16 +103,24 @@ class homeslider extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top:55.0),
-                  child: Row(
-                      children: [
-                        Text("أرجعام حصري",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                        Text(" | 11/12/2020")
-                      ]
-                  ),
+                  padding: const EdgeInsets.only(top: 55.0),
+                  child: Row(children: [
+                    Text(
+                      "أرجعام حصري",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(" | 11/12/2020")
+                  ]),
                 ),
-                Text("حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                Text("مليار ريال للسنة المالية 2019",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                Text(
+                  "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "مليار ريال للسنة المالية 2019",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -104,22 +128,30 @@ class homeslider extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                            padding: EdgeInsets.only(left:5),
+                            padding: EdgeInsets.only(left: 5),
                             child: Icon(Icons.access_time)),
-                        Text("قبل 45 دقيقة",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)
+                        Text(
+                          "قبل 45 دقيقة",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                     Row(
                       children: [
-                        Text("45",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                        Text(
+                          "45",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                         Container(
-                            padding: EdgeInsets.only(right:5),
+                            padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.messenger_outline)),
                         Container(
-                            padding: EdgeInsets.only(right:5),
+                            padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.favorite_outline)),
                         Container(
-                            padding: EdgeInsets.only(right:5,left: 10),
+                            padding: EdgeInsets.only(right: 5, left: 10),
                             child: Icon(Icons.arrow_upward)),
                       ],
                     )
@@ -148,16 +180,24 @@ class homeslider extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top:55.0),
-                  child: Row(
-                      children: [
-                        Text("أرجعام حصري",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                        Text(" | 11/12/2020")
-                      ]
-                  ),
+                  padding: const EdgeInsets.only(top: 55.0),
+                  child: Row(children: [
+                    Text(
+                      "أرجعام حصري",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(" | 11/12/2020")
+                  ]),
                 ),
-                Text("حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                Text("مليار ريال للسنة المالية 2019",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                Text(
+                  "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "مليار ريال للسنة المالية 2019",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,22 +205,30 @@ class homeslider extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                            padding: EdgeInsets.only(left:5),
+                            padding: EdgeInsets.only(left: 5),
                             child: Icon(Icons.access_time)),
-                        Text("قبل 45 دقيقة",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),)
+                        Text(
+                          "قبل 45 دقيقة",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                     Row(
                       children: [
-                        Text("45",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                        Text(
+                          "45",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                         Container(
-                            padding: EdgeInsets.only(right:5),
+                            padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.messenger_outline)),
                         Container(
-                            padding: EdgeInsets.only(right:5),
+                            padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.favorite_outline)),
                         Container(
-                            padding: EdgeInsets.only(right:5,left: 10),
+                            padding: EdgeInsets.only(right: 5, left: 10),
                             child: Icon(Icons.arrow_upward)),
                       ],
                     )
@@ -190,8 +238,6 @@ class homeslider extends StatelessWidget {
             ),
           ),
         ),
-
-
       ],
 
       //Slider Container properties
