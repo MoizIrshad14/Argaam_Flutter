@@ -32,6 +32,12 @@ class CustomTheme with ChangeNotifier {
             primary: white_background,
           ),
         ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            backgroundColor: light_grey_background,
+            primary: grey_background,
+          ),
+        ),
         textTheme: ThemeData.light().textTheme,
         buttonTheme: ButtonThemeData( // 4
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
@@ -58,6 +64,12 @@ class CustomTheme with ChangeNotifier {
           style: ElevatedButton.styleFrom(
             onPrimary: Colors.white,
             primary: dark_blue_background,
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            backgroundColor: light_blue_background,
+            primary: white_background,
           ),
         ),
         buttonTheme: ButtonThemeData(

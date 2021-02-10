@@ -27,22 +27,12 @@ class _loginState extends State<login> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
+        appBar: AppBar(
+          elevation: 0,
+        ),
         body: ListView(
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
-            // SizedBox(height: 15),
-            // Container(
-            //   child: Align(
-            //     alignment: Alignment.topRight,
-            //     child: CircleAvatar(
-            //       radius: 20,
-            //       child: Image(image: AssetImage("assets/icons/back.png"),
-            //         fit: BoxFit.contain,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            //SizedBox(height: 20),
             Container(
                 height: 80,
                 width: 50,
@@ -97,10 +87,6 @@ class _loginState extends State<login> {
                   prefixIcon: Icon(Icons.remove_red_eye_outlined,
                       color: primary_orange, size: 25.0),
                   filled: true,
-                  // enabledBorder: OutlineInputBorder(
-                  //     borderSide: const BorderSide(color: primary_text_one, width: 0.0)
-                  // ),
-                  //labelStyle: TextStyle(color: primary_text_one),
                   labelText: 'Password',
                   errorStyle: TextStyle(
                     color: primary_text_one,

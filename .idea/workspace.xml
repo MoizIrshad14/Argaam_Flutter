@@ -20,13 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d3927a9-fdbd-406c-8232-2b4a0252f541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/constants/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/colors.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/homepage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/login.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/theme/customtheme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/theme/customtheme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/appbar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,15 +60,15 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\assets\icons" />
-      <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\assets\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\assets\images" />
       <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\assets\icons" />
       <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\lib\constants" />
       <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\lib\common\theme" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\assets\icons" />
+      <recent name="C:\Users\Taha\AndroidStudioProjects\Flutter vs React\Argaam_Flutter\assets\images" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -105,22 +105,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1612681255350" />
-    <state width="1323" height="206" key="GridCell.Tab.0.bottom" timestamp="1612859619402">
+    <state width="1323" height="271" key="GridCell.Tab.0.bottom" timestamp="1612942826030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="206" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1612859619402" />
-    <state width="1323" height="206" key="GridCell.Tab.0.center" timestamp="1612859619402">
+    <state width="1323" height="271" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1612942826030" />
+    <state width="1323" height="271" key="GridCell.Tab.0.center" timestamp="1612942826029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="206" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1612859619402" />
-    <state width="1323" height="206" key="GridCell.Tab.0.left" timestamp="1612859619401">
+    <state width="1323" height="271" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1612942826029" />
+    <state width="1323" height="271" key="GridCell.Tab.0.left" timestamp="1612942826029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="206" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1612859619401" />
-    <state width="1323" height="206" key="GridCell.Tab.0.right" timestamp="1612859619402">
+    <state width="1323" height="271" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1612942826029" />
+    <state width="1323" height="271" key="GridCell.Tab.0.right" timestamp="1612942826029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="206" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1612859619402" />
+    <state width="1323" height="271" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1612942826029" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1612769412693">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
