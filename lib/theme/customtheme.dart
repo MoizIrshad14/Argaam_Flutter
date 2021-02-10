@@ -47,8 +47,12 @@ class CustomTheme with ChangeNotifier {
   }
   static ThemeData get darkTheme {
     return ThemeData(
-        primaryColor: primary_background_two,
-        scaffoldBackgroundColor: primary_background_two,
+      cardTheme: CardTheme(
+        color: Colors.yellow
+      ),
+        primaryColor: dark_blue_background,
+        backgroundColor: Colors.yellow,
+        scaffoldBackgroundColor: dark_blue_background,
         textTheme: ThemeData.dark().textTheme,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_one,
