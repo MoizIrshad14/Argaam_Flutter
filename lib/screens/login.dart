@@ -26,11 +26,8 @@ class _loginState extends State<login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBar(
-          elevation: 0,
-        ),
         body: ListView(
+          padding: EdgeInsets.only(top:80),
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             Container(

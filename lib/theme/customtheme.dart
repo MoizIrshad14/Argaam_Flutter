@@ -52,7 +52,10 @@ class CustomTheme with ChangeNotifier {
       ),
         primaryColor: dark_blue_background,
         backgroundColor: Colors.yellow,
-        scaffoldBackgroundColor: dark_blue_background,
+        appBarTheme: AppBarTheme(
+          backgroundColor: light_blue_background
+        ),
+        scaffoldBackgroundColor: light_blue_background,
         textTheme: ThemeData.dark().textTheme,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_one,
