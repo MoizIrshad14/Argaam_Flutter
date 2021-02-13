@@ -1,3 +1,5 @@
+import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
+import 'package:Argaam_Flutter/screens/login.dart';
 import 'package:Argaam_Flutter/screens/splashscreen.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/theme/customtheme.dart';
@@ -32,11 +34,11 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      title: 'Argaam',
-      theme: CustomTheme.lightTheme,
-      darkTheme: CustomTheme.darkTheme,
-      themeMode: currentTheme.currentTheme,
-      home: splashscreen(),
-    );
+        title: 'Argaam',
+        theme: CustomTheme.lightTheme,
+        debugShowCheckedModeBanner: false,
+        darkTheme: CustomTheme.darkTheme,
+        themeMode: ThemeMode.light, //currentTheme.currentTheme,
+        home: login());
   }
 }
