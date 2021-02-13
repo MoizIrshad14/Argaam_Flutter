@@ -1,22 +1,49 @@
 import 'package:Argaam_Flutter/constants/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  CustomAppBar({Key key}) : preferredSize = Size.fromHeight(kToolbarHeight), super(key: key);
-
   @override
-  final Size preferredSize; // default is 56.0
+  Size get preferredSize => Size.fromHeight(100);
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
 }
 
-class _CustomAppBarState extends State<CustomAppBar>{
-
+class _CustomAppBarState extends State<CustomAppBar> {
+  String dropdownValue = 'One';
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        title:  Image.asset('assets/icons/appbaricon.png',width: 150,height: 150, fit: BoxFit.contain),
+      centerTitle: true,
+      flexibleSpace: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Image.asset('assets/images/flag.png',width: 60,height: 60,)
+          ),
+          Container(
+              child: Image.asset(
+                "assets/icons/appbaricon.png",
+                height: 100,
+                width: 100,
+              )),
+          Container(
+            margin: EdgeInsets.only(right: 10),
+            child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                    shape: CircleBorder(),
+                    minimumSize: Size(60, 60)),
+                onPressed: () {
+                  // _displaySnackBar(context);
+                },
+                child: ImageIcon(
+                  AssetImage('assets/icons/search.png'),
+                )),
+          ),
+        ],
+      ),
     );
   }
 }

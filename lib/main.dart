@@ -5,6 +5,7 @@ import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/theme/customtheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     currentTheme.addListener(() {
-      //2
       setState(() {});
     });
   }
@@ -34,11 +34,24 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-        title: 'Argaam',
-        theme: CustomTheme.lightTheme,
-        debugShowCheckedModeBanner: false,
-        darkTheme: CustomTheme.darkTheme,
-        themeMode: ThemeMode.light, //currentTheme.currentTheme,
-        home: login());
+      title: 'Argaam',
+      theme: CustomTheme.lightTheme,
+      darkTheme: CustomTheme.darkTheme,
+      themeMode: currentTheme.currentTheme,
+      builder: (context, widget) => ResponsiveWrapper.builder(
+          BouncingScrollWrapper.builder(context, widget),
+          maxWidth: 1200,
+          minWidth: 450,
+          defaultScale: true,
+          breakpoints: [
+            ResponsiveBreakpoint.resize(450, name: MOBILE),
+            ResponsiveBreakpoint.autoScale(800, name: TABLET),
+            ResponsiveBreakpoint.autoScale(1000, name: TABLET),
+            ResponsiveBreakpoint.resize(1200, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: "4K"),
+          ],
+          background: Container(color: Color(0xFFF5F5F5))),
+      home: splashscreen(),
+    );
   }
 }

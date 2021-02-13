@@ -21,35 +21,67 @@ class CustomTheme with ChangeNotifier {
           backgroundColor: primary_background_card_two,
         ),
         inputDecorationTheme: const InputDecorationTheme(
+          fillColor: white_background,
           labelStyle: TextStyle(color: Colors.black),
           hintStyle: TextStyle(color: Colors.grey),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            onPrimary: black_background,
+            primary: white_background,
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            backgroundColor: light_grey_background,
+            primary: grey_background,
+          ),
         ),
         textTheme: ThemeData.light().textTheme,
         buttonTheme: ButtonThemeData(
           // 4
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
           buttonColor: primary_button,
         ));
   }
 
   static ThemeData get darkTheme {
     return ThemeData(
-        primaryColor: primary_background_two,
-        scaffoldBackgroundColor: primary_background_two,
-        dialogBackgroundColor: primary_background_card_two,
-        //fontFamily: 'Montserrat',
+        cardTheme: CardTheme(color: Colors.yellow),
+        primaryColor: dark_blue_background,
+        backgroundColor: Colors.yellow,
+        //appBarTheme: AppBarTheme(: light_blue_background),
+        scaffoldBackgroundColor: light_blue_background,
         textTheme: ThemeData.dark().textTheme,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_one,
         ),
         inputDecorationTheme: const InputDecorationTheme(
+          fillColor: dark_blue_background,
           labelStyle: TextStyle(color: Colors.white),
-          hintStyle: TextStyle(color: Colors.grey),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            onPrimary: Colors.white,
+            primary: dark_blue_background,
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            backgroundColor: light_blue_background,
+            primary: white_background,
+          ),
         ),
         buttonTheme: ButtonThemeData(
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
           buttonColor: primary_button,
         ));
   }
