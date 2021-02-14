@@ -1,75 +1,104 @@
-import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/screens/homepage.dart';
 import 'package:Argaam_Flutter/screens/login.dart';
 import 'package:Argaam_Flutter/screens/menuScreen.dart';
-import 'package:Argaam_Flutter/screens/streamer.dart';
 import 'package:Argaam_Flutter/screens/webviewmenu.dart';
-import 'package:ff_navigation_bar/ff_navigation_bar.dart';
+import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+
+// void main() => runApp(MyApp());
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Circular Bottom Navigation Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: MyHomePage(title: 'circular_bottom_navigation'),
+//     );
+//   }
+// }
 
 class bottomnavigation extends StatefulWidget {
+  bottomnavigation({Key key, this.title}) : super(key: key);
+  final String title;
+
   @override
   _bottomnavigationState createState() => _bottomnavigationState();
 }
 
 class _bottomnavigationState extends State<bottomnavigation> {
-  int currentIndex = 0;
-  final List<Widget> _children = [
-    homepage(),
-    login(),
-    webViewMenu(),
-    webViewMenu(),
-    menuScreen(),
-  ];
+  int selectedPos = 0;
+
+  double bottomNavBarHeight = 60;
+
+  List<TabItem> tabItems = List.of([
+    new TabItem(Icons.home, "Home", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.search, "My Markets", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.layers, "Financial Report", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.layers, "Streamer", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.menu, "Menu", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+  ]);
+
+  CircularBottomNavigationController _navigationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _navigationController = new CircularBottomNavigationController(selectedPos);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[currentIndex],
-      bottomNavigationBar: FFNavigationBar(
-        theme: FFNavigationBarTheme(
-          barBackgroundColor: Colors.white,
-          selectedItemBorderColor: Colors.transparent,
-          unselectedItemLabelColor: Colors.transparent,
-          selectedItemBackgroundColor: primary_button,
-          unselectedItemBackgroundColor: primary_background_two,
-          selectedItemIconColor: Colors.white,
-          selectedItemLabelColor: Colors.black,
-          showSelectedItemShadow: false,
-          barHeight: 65,
-        ),
-        selectedIndex: currentIndex,
-        onSelectTab: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        items: [
-          FFNavigationBarItem(
-            iconData: Icons.calendar_today,
-            label: 'Home',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.people,
-            label: 'Financial Reports',
-            //selectedBackgroundColor: Colors.orange,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.attach_money,
-            label: 'My Companies',
-            //selectedBackgroundColor: Colors.purple,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.note,
-            label: 'Events',
-            //selectedBackgroundColor: Colors.blue,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.settings,
-            label: 'Menu',
-            //selectedBackgroundColor: Colors.red,
-          ),
+      body: Stack(
+        children: <Widget>[
+          Padding(child: _tabbarMenus(selectedPos), padding: EdgeInsets.only(bottom: bottomNavBarHeight),),
+          Align(alignment: Alignment.bottomCenter, child: bottomNav())
         ],
       ),
     );
+  }
+
+  Widget _tabbarMenus(int index) {
+    switch (index) {
+      case 0:
+        return homepage();
+      case 1:
+        return login();
+      case 2:
+        return webViewMenu();
+      case 3:
+        return webViewMenu();
+      case 4:
+        return menuScreen();
+      default:
+        return homepage();
+
+    }
+  }
+
+  Widget bottomNav() {
+    return CircularBottomNavigation(
+      tabItems,
+      controller: _navigationController,
+      barHeight: bottomNavBarHeight,
+      barBackgroundColor: Colors.white,
+      animationDuration: Duration(milliseconds: 300),
+      selectedCallback: (int selectedPos) {
+        setState(() {
+          this.selectedPos = selectedPos;
+          print(_navigationController.value);
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _navigationController.dispose();
   }
 }

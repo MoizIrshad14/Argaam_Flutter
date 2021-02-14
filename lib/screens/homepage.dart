@@ -4,7 +4,6 @@ import 'package:Argaam_Flutter/widgets/appbar.dart';
 import 'package:Argaam_Flutter/widgets/homeslider.dart';
 import 'package:Argaam_Flutter/widgets/hometabs.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

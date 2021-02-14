@@ -3,7 +3,6 @@ import 'package:Argaam_Flutter/screens/homepage.dart';
 import 'package:Argaam_Flutter/screens/login.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/widgets/bottomnavigation.dart';
-import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class splashscreen extends StatefulWidget {
@@ -29,22 +28,10 @@ class _splashscreenState extends State<splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: primary_splash,
-        child: Center(
-          child: Container(
-            height: 150,
-            width: 150,
-            // color: Colors.black,
-            child: Image(
+    return Image(
               image: AssetImage("assets/icons/logo.png"),
               color: Colors.white,
               fit: BoxFit.contain,
-            ),
-          ),
-        ),
-      ),
-    );
+            );
   }
 }
