@@ -35,11 +35,21 @@ class _bottomnavigationState extends State<bottomnavigation> {
   double bottomNavBarHeight = 60;
 
   List<TabItem> tabItems = List.of([
-    new TabItem(Icons.home, "Home", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-    new TabItem(Icons.search, "My Markets", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-    new TabItem(Icons.layers, "Financial Report", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-    new TabItem(Icons.layers, "Streamer", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-    new TabItem(Icons.menu, "Menu", Colors.orange, labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.home, "Home", Colors.orange,
+        labelStyle:
+            TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.search, "My Markets", Colors.orange,
+        labelStyle:
+            TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.layers, "Financial Report", Colors.orange,
+        labelStyle:
+            TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.layers, "Streamer", Colors.orange,
+        labelStyle:
+            TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+    new TabItem(Icons.menu, "Menu", Colors.orange,
+        labelStyle:
+            TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
   ]);
 
   CircularBottomNavigationController _navigationController;
@@ -55,7 +65,10 @@ class _bottomnavigationState extends State<bottomnavigation> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Padding(child: _tabbarMenus(selectedPos), padding: EdgeInsets.only(bottom: bottomNavBarHeight),),
+          Padding(
+            child: _tabbarMenus(selectedPos),
+            padding: EdgeInsets.only(bottom: bottomNavBarHeight),
+          ),
           Align(alignment: Alignment.bottomCenter, child: bottomNav())
         ],
       ),
@@ -76,23 +89,24 @@ class _bottomnavigationState extends State<bottomnavigation> {
         return menuScreen();
       default:
         return homepage();
-
     }
   }
 
   Widget bottomNav() {
-    return CircularBottomNavigation(
-      tabItems,
-      controller: _navigationController,
-      barHeight: bottomNavBarHeight,
-      barBackgroundColor: Colors.white,
-      animationDuration: Duration(milliseconds: 300),
-      selectedCallback: (int selectedPos) {
-        setState(() {
-          this.selectedPos = selectedPos;
-          print(_navigationController.value);
-        });
-      },
+    return SafeArea(
+      child: CircularBottomNavigation(
+        tabItems,
+        controller: _navigationController,
+        barHeight: bottomNavBarHeight,
+        barBackgroundColor: Colors.white,
+        animationDuration: Duration(milliseconds: 300),
+        selectedCallback: (int selectedPos) {
+          setState(() {
+            this.selectedPos = selectedPos;
+            print(_navigationController.value);
+          });
+        },
+      ),
     );
   }
 

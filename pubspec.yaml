@@ -32,6 +32,8 @@ dependencies:
   circular_bottom_navigation: ^1.0.1
   country_code_picker: ^1.7.0
   carousel_slider: ^3.0.0
+  shared_preferences: ^0.5.12+4
+
 
 dev_dependencies:
   flutter_test:
