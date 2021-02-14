@@ -20,3 +20,8 @@ const black_background = Color(0xFF000000);
 const orange_border = Color(0xFFF58026);
 const light_blue_background = Color(0xFF2B2E3D);
 const light_grey_background = Color(0xFFD3D3D3);
+
+const white_text = Color(0xFFFFFFFF);
+const black_text = Color(0xFF000000);
+const grey_text = Color(0xFF929497);
+const orange_background = Color(0xFFF58026);

@@ -73,6 +73,8 @@ class CustomTheme with ChangeNotifier {
             primary: dark_blue_background,
           ),
         ),
+        tabBarTheme: TabBarTheme(
+            labelColor: white_text, unselectedLabelColor: grey_text),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             backgroundColor: light_blue_background,
