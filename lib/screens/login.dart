@@ -27,7 +27,7 @@ class _loginState extends State<login> {
     return SafeArea(
       child: Scaffold(
         body: ListView(
-          padding: EdgeInsets.only(top:80),
+          padding: EdgeInsets.only(top: 80),
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             Container(
@@ -53,12 +53,14 @@ class _loginState extends State<login> {
                 // style: TextStyle(color: primary_text_one),
                 controller: nameController,
                 decoration: InputDecoration(
-                  focusedBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: orange_border, width: 2.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: orange_border, width: 2.0),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  enabledBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: dark_blue_background, width: 2.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        color: dark_blue_background, width: 2.0),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   prefixIcon: Icon(Icons.account_circle,
@@ -73,12 +75,14 @@ class _loginState extends State<login> {
               child: TextField(
                 controller: passwordController,
                 decoration: InputDecoration(
-                  focusedBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: orange_border, width: 2.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: orange_border, width: 2.0),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: dark_blue_background, width: 2.0),
+                    borderSide: const BorderSide(
+                        color: dark_blue_background, width: 2.0),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   prefixIcon: Icon(Icons.remove_red_eye_outlined,
@@ -146,8 +150,7 @@ class _loginState extends State<login> {
                       color: Colors.white,
                     ),
                   ),
-                  Text("OR",
-                      style: TextStyle(fontSize: 18)),
+                  Text("OR", style: TextStyle(fontSize: 18)),
                   Container(
                     height: 20,
                     width: 90,
@@ -160,37 +163,37 @@ class _loginState extends State<login> {
             ),
             //Social Sign in
             Container(
-              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 60),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 60),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(shape: CircleBorder(), minimumSize: Size(60, 60)),
+                      style: ElevatedButton.styleFrom(
+                          shape: CircleBorder(), minimumSize: Size(60, 60)),
                       onPressed: () {
                         _displaySnackBar(context);
                       },
                       child: ImageIcon(
                         AssetImage('assets/images/Gmail.png'),
-                      )
-                  ),
+                      )),
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(shape: CircleBorder(), minimumSize: Size(60, 60)),
+                      style: ElevatedButton.styleFrom(
+                          shape: CircleBorder(), minimumSize: Size(60, 60)),
                       onPressed: () {
                         _displaySnackBar(context);
                       },
                       child: ImageIcon(
                         AssetImage('assets/images/Apple.png'),
-                      )
-                  ),
+                      )),
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(shape: CircleBorder(), minimumSize: Size(60, 60)),
+                      style: ElevatedButton.styleFrom(
+                          shape: CircleBorder(), minimumSize: Size(60, 60)),
                       onPressed: () {
                         _displaySnackBar(context);
                       },
                       child: ImageIcon(
                         AssetImage('assets/images/Facebook.png'),
-                      )
-                  ),
+                      )),
                 ],
               ),
             )

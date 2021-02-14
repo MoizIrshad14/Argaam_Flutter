@@ -1,3 +1,5 @@
+import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
+import 'package:Argaam_Flutter/screens/login.dart';
 import 'package:Argaam_Flutter/screens/splashscreen.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/theme/customtheme.dart';

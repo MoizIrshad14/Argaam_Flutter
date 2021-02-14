@@ -1,4 +1,3 @@
-
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +9,11 @@ class CustomTheme with ChangeNotifier {
     _isDarkTheme = !_isDarkTheme;
     notifyListeners();
   }
-  static ThemeData get lightTheme { //1
-    return ThemeData( //2
+
+  static ThemeData get lightTheme {
+    //1
+    return ThemeData(
+        //2
         primaryColor: primary_background_one,
         scaffoldBackgroundColor: primary_background_one,
         //fontFamily: 'Montserrat', //3
@@ -39,22 +41,20 @@ class CustomTheme with ChangeNotifier {
           ),
         ),
         textTheme: ThemeData.light().textTheme,
-        buttonTheme: ButtonThemeData( // 4
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        buttonTheme: ButtonThemeData(
+          // 4
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
           buttonColor: primary_button,
-        )
-    );
+        ));
   }
+
   static ThemeData get darkTheme {
     return ThemeData(
-      cardTheme: CardTheme(
-        color: Colors.yellow
-      ),
+        cardTheme: CardTheme(color: Colors.yellow),
         primaryColor: dark_blue_background,
         backgroundColor: Colors.yellow,
-        appBarTheme: AppBarTheme(
-          backgroundColor: light_blue_background
-        ),
+        //appBarTheme: AppBarTheme(: light_blue_background),
         scaffoldBackgroundColor: light_blue_background,
         textTheme: ThemeData.dark().textTheme,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -80,9 +80,9 @@ class CustomTheme with ChangeNotifier {
           ),
         ),
         buttonTheme: ButtonThemeData(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
           buttonColor: primary_button,
-        )
-    );
+        ));
   }
 }
