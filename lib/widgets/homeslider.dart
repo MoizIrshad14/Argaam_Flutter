@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,11 +32,19 @@ class homeslider extends StatelessWidget {
                   child: Row(children: [
                     Text(
                       "أرجعام حصري",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange[400]),
                     ),
-                    Text(" | 11/12/2020")
+                    Text(
+                      " | 11/12/2020",
+                      style: TextStyle(fontSize: 15),
+                    )
                   ]),
+                ),
+                SizedBox(
+                  height: 5.0,
                 ),
                 Text(
                   "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
@@ -56,7 +66,7 @@ class homeslider extends StatelessWidget {
                         Text(
                           "قبل 45 دقيقة",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.normal),
                         )
                       ],
                     ),
@@ -69,7 +79,9 @@ class homeslider extends StatelessWidget {
                         ),
                         Container(
                             padding: EdgeInsets.only(right: 5),
-                            child: Icon(Icons.messenger_outline)),
+                            child: ImageIcon(
+                                AssetImage("assets/icons/streamer.png"),
+                                color: Colors.white)),
                         Container(
                             padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.favorite_outline)),
@@ -107,11 +119,19 @@ class homeslider extends StatelessWidget {
                   child: Row(children: [
                     Text(
                       "أرجعام حصري",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange[400]),
                     ),
-                    Text(" | 11/12/2020")
+                    Text(
+                      " | 11/12/2020",
+                      style: TextStyle(fontSize: 15),
+                    )
                   ]),
+                ),
+                SizedBox(
+                  height: 5.0,
                 ),
                 Text(
                   "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
@@ -133,7 +153,7 @@ class homeslider extends StatelessWidget {
                         Text(
                           "قبل 45 دقيقة",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.normal),
                         )
                       ],
                     ),
@@ -146,7 +166,10 @@ class homeslider extends StatelessWidget {
                         ),
                         Container(
                             padding: EdgeInsets.only(right: 5),
-                            child: Icon(Icons.messenger_outline)),
+                            child: //Icon(Icons.messenger_outline)
+                                ImageIcon(
+                                    AssetImage("assets/icons/streamer.png"),
+                                    color: Colors.white)),
                         Container(
                             padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.favorite_outline)),
@@ -184,11 +207,19 @@ class homeslider extends StatelessWidget {
                   child: Row(children: [
                     Text(
                       "أرجعام حصري",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange[400]),
                     ),
-                    Text(" | 11/12/2020")
+                    Text(
+                      " | 11/12/2020",
+                      style: TextStyle(fontSize: 15),
+                    )
                   ]),
+                ),
+                SizedBox(
+                  height: 5.0,
                 ),
                 Text(
                   "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
@@ -210,7 +241,7 @@ class homeslider extends StatelessWidget {
                         Text(
                           "قبل 45 دقيقة",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.normal),
                         )
                       ],
                     ),
@@ -223,7 +254,10 @@ class homeslider extends StatelessWidget {
                         ),
                         Container(
                             padding: EdgeInsets.only(right: 5),
-                            child: Icon(Icons.messenger_outline)),
+                            child: //Icon(Icons.messenger_outline)
+                                ImageIcon(
+                                    AssetImage("assets/icons/streamer.png"),
+                                    color: Colors.white)),
                         Container(
                             padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.favorite_outline)),
