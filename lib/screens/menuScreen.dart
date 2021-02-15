@@ -1,3 +1,4 @@
+import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -8,12 +9,25 @@ class menuScreen extends StatefulWidget {
 
 class _menuScreenState extends State<menuScreen> {
   List<String> listitems = [
-    'ريال للسنة',
-    'المالية',
-    'مصرف',
-    'مليار',
-    ' حصري',
-    'دقيقة'
+    'Streamer',
+    'Argaam Pulse',
+    'My Companies',
+    'Favorite',
+    'Financial Reports',
+    'Most Read',
+    'Real State',
+    'Investor Opinion',
+    'corona',
+    'International Market',
+    'Market Indicators',
+    'Events',
+    'Alpha Beta',
+    'Editor Choice',
+    'Argaam Insights',
+    'Settings',
+    'Share App',
+    'Contact Us',
+    'About Us'
   ];
 
   @override
@@ -68,13 +82,13 @@ class _menuScreenState extends State<menuScreen> {
           color: Colors.grey[200],
           child: ListView.builder(
               shrinkWrap: true,
-          itemCount: listitems.length + 1,
-          itemBuilder: (context, index) {
-            if (index == 0) {
-              return _getUserHeader();
-            }
-            return _rowWidget(index);
-          }),
+              itemCount: listitems.length + 1,
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return _getUserHeader();
+                }
+                return _rowWidget(index);
+              }),
         ),
       ),
     );
@@ -89,7 +103,7 @@ class _menuScreenState extends State<menuScreen> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14.0), color: Colors.white),
         child: Directionality(
-          textDirection: TextDirection.rtl,
+          textDirection: getCurrentTextDirection(),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,14 +121,16 @@ class _menuScreenState extends State<menuScreen> {
                     Column(
                       children: [
                         Text(
-                          " صافياً قدره",
+                          "Walter Weight",
+                          textDirection: getCurrentTextDirection(),
                           style: TextStyle(
                               fontSize: 20.0,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          " مصرف الراجحي ربحاً",
+                          "Edit Profile",
+                          textDirection: getCurrentTextDirection(),
                           style: TextStyle(
                               fontSize: 16.0,
                               color: Colors.grey,
@@ -180,7 +196,7 @@ class _menuScreenState extends State<menuScreen> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18.0), color: Colors.white),
       child: Directionality(
-          textDirection: TextDirection.rtl,
+          textDirection: getCurrentTextDirection(),
           child: ListTile(
             leading: Icon(
               Icons.arrow_drop_down_circle,
@@ -194,7 +210,9 @@ class _menuScreenState extends State<menuScreen> {
                   fontSize: 18.0),
             ),
             trailing: Icon(
-              Icons.keyboard_arrow_left,
+              getCurrentTextDirection() == TextDirection.rtl
+                  ? Icons.keyboard_arrow_left
+                  : Icons.keyboard_arrow_right,
               color: Colors.black,
             ),
           )),
