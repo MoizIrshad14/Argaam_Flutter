@@ -7,9 +7,12 @@ class webViewMenu extends StatefulWidget {
 
 class _webViewMenuState extends State<webViewMenu> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(),
-    );
+    return Container();
   }
 }
