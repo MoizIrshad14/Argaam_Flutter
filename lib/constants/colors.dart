@@ -25,3 +25,4 @@ const white_text = Color(0xFFFFFFFF);
 const black_text = Color(0xFF000000);
 const grey_text = Color(0xFF929497);
 const orange_background = Color(0xFFF58026);
+const appbar_serach_background = Color(0xFFF5F5F5);

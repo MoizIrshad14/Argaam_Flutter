@@ -15,26 +15,34 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
+      backgroundColor: white_background,
       centerTitle: true,
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
               margin: EdgeInsets.only(left: 10),
-              child: Image.asset('assets/images/flag.png',width: 60,height: 60,)
-          ),
-          Container(
               child: Image.asset(
-                "assets/icons/appbaricon.png",
-                height: 100,
-                width: 100,
+                'assets/images/flag.png',
+                width: 60,
+                height: 60,
               )),
           Container(
+              child: Image.asset(
+            "assets/icons/appbaricon.png",
+            height: 100,
+            width: 100,
+          )),
+          Container(
             margin: EdgeInsets.only(right: 10),
-            child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                    shape: CircleBorder(),
-                    minimumSize: Size(60, 60)),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  elevation: 0,
+                  minimumSize: Size(60, 60),
+                  primary: appbar_serach_background,
+                ),
                 onPressed: () {
                   // _displaySnackBar(context);
                 },

@@ -14,7 +14,7 @@ class CurvedScreenContainer extends StatelessWidget {
             height: constraints.maxHeight,
             width: width,
             color: Theme.of(context).dialogBackgroundColor,
-            padding: EdgeInsets.symmetric(vertical: 10),
+            //padding: EdgeInsets.symmetric(vertical: 10),
             child: SafeArea(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,

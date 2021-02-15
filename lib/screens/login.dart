@@ -39,11 +39,11 @@ class _loginState extends State<login> {
             SizedBox(height: 30),
             Container(
               child: Center(
-                  child: Text("Welcome", style: TextStyle(fontSize: 35))),
+                  child: Text("أهلابك!", style: TextStyle(fontSize: 35))),
             ),
             Container(
               child: Center(
-                  child: Text("Enter your details to get started",
+                  child: Text("أدخل التفاصيل الخاصة بك للبدء",
                       style: TextStyle(fontSize: 20))),
             ),
             SizedBox(height: 20),
@@ -100,7 +100,7 @@ class _loginState extends State<login> {
               padding: EdgeInsets.symmetric(horizontal: 40),
               child: Row(
                 children: <Widget>[
-                  Text("Remember Me"),
+                  Text("أو"),
                   Theme(
                     data: Theme.of(context).copyWith(
                       unselectedWidgetColor: Colors.orange,
@@ -124,7 +124,7 @@ class _loginState extends State<login> {
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               height: 80,
               child: RaisedButton(
-                  child: Text("Register Now",
+                  child: Text("تسجيل الدخول",
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 20,
@@ -147,15 +147,15 @@ class _loginState extends State<login> {
                     height: 20,
                     width: 90,
                     child: Divider(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
-                  Text("OR", style: TextStyle(fontSize: 18)),
+                  Text("ر؟", style: TextStyle(fontSize: 18)),
                   Container(
                     height: 20,
                     width: 90,
                     child: Divider(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                 ],
