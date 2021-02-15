@@ -34,8 +34,8 @@ class _splashscreenState extends State<splashscreen> {
         child: Container(
             child: Image.asset(
           "assets/icons/logo.png",
-          height: 150,
-          width: 150,
+          height: 120,
+          width: 120,
         )),
       ),
     );
