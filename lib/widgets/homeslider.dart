@@ -13,7 +13,7 @@ class homeslider extends StatelessWidget {
       items: [
         //1st Image of Slider
         Hero(
-          tag: "Blogs",
+          tag: "Blogs3",
           child: Container(
             padding: EdgeInsets.only(right: 15),
             width: MediaQuery.of(context).size.width,
@@ -118,7 +118,7 @@ class homeslider extends StatelessWidget {
         ),
         //2st Image of Slider
         Hero(
-          tag: "Blogs",
+          tag: "Blogs2",
           child: Container(
             padding: EdgeInsets.only(right: 15),
             width: MediaQuery.of(context).size.width,
@@ -224,7 +224,7 @@ class homeslider extends StatelessWidget {
         ),
         //3st Image of Slider
         Hero(
-          tag: "Blogs",
+          tag: "Blog1",
           child: Container(
             padding: EdgeInsets.only(right: 15),
             width: MediaQuery.of(context).size.width,
