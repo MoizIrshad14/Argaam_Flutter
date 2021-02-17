@@ -15,6 +15,8 @@ class _CustomdropdownState extends State<Customdropdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 80,
+      color: Colors.yellow,
       padding: EdgeInsets.all(10),
       // decoration: BoxDecoration(
       //     border: Border.all(width: 1, color: Colors.grey),
@@ -26,8 +28,9 @@ class _CustomdropdownState extends State<Customdropdown> {
             child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButton<String>(
+                itemHeight: 60.0,
                 isDense: true,
-                hint: new Text("Select Bank"),
+                hint: new Text("Select Country"),
                 value: _selected,
                 onChanged: (String newValue) {
                   setState(() {
