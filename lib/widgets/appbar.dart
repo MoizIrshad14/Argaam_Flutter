@@ -1,6 +1,7 @@
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:Argaam_Flutter/widgets/dropdown.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
@@ -21,13 +22,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-              margin: EdgeInsets.only(left: 10),
-              child: Image.asset(
-                'assets/images/flag.png',
-                width: 60,
-                height: 60,
-              )),
+          Customdropdown(),
+          // Container(
+          //     margin: EdgeInsets.only(left: 10),
+          //     child: Image.asset(
+          //       'assets/images/flag.png',
+          //       width: 60,
+          //       height: 60,
+          //     )),
           Container(
               child: Image.asset(
             "assets/icons/appbaricon.png",

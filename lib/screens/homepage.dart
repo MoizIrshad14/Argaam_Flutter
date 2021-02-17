@@ -103,7 +103,7 @@ class _homepageState extends State<homepage>
                                     ListView.builder(
                                         physics: NeverScrollableScrollPhysics(),
                                         shrinkWrap: true,
-                                        itemCount: 18,
+                                        itemCount: 5,
                                         itemBuilder: (context, index) {
                                           return this.getArticle(index);
                                         })
