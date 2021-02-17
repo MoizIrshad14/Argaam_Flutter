@@ -37,6 +37,7 @@ class _blogsdetailsState extends State<blogsdetails> {
                     child: Icon(Icons.menu)),
               ),
               Divider(
+                height: 2,
                 thickness: 1,
                 color: grey_background,
               ),
