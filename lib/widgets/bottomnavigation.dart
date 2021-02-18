@@ -1,7 +1,8 @@
 import 'package:Argaam_Flutter/screens/homepage.dart';
-import 'package:Argaam_Flutter/screens/login.dart';
+import 'package:Argaam_Flutter/screens/mymarkets.dart';
 import 'package:Argaam_Flutter/screens/menuScreen.dart';
-import 'package:Argaam_Flutter/screens/webviewmenu.dart';
+import 'package:Argaam_Flutter/screens/streamer.dart';
+import 'package:Argaam_Flutter/screens/financialreports.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
@@ -80,16 +81,20 @@ class _bottomnavigationState extends State<bottomnavigation> {
       case 0:
         return homepage();
       case 1:
-        return login();
+        return mymarkets();
       case 2:
-        return webViewMenu();
+        return financialreport();
       case 3:
-        return webViewMenu();
+        return streamer();
       case 4:
         return menuScreen();
       default:
         return homepage();
     }
+  }
+
+  Widget streamer() {
+    return SafeArea(child: webviewStreamer());
   }
 
   Widget bottomNav() {

@@ -1,7 +1,4 @@
 import 'package:Argaam_Flutter/constants/colors.dart';
-import 'package:Argaam_Flutter/screens/homepage.dart';
-import 'package:Argaam_Flutter/screens/login.dart';
-import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/widgets/bottomnavigation.dart';
 import 'package:flutter/material.dart';
 

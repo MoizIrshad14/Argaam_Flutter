@@ -2,6 +2,7 @@ import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
+import 'package:Argaam_Flutter/widgets/innertab.dart';
 import 'package:Argaam_Flutter/widgets/appbar.dart';
 import 'package:Argaam_Flutter/widgets/homeslider.dart';
 import 'package:Argaam_Flutter/widgets/hometabs.dart';
@@ -67,6 +68,8 @@ class _homepageState extends State<homepage>
                           Container(
                             padding: EdgeInsets.all(15),
                             child: TabBar(
+                                labelStyle:
+                                    TextStyle(fontWeight: FontWeight.bold),
                                 labelColor: white_text,
                                 unselectedLabelColor: grey_text,
                                 indicatorSize: TabBarIndicatorSize.label,
@@ -109,12 +112,9 @@ class _homepageState extends State<homepage>
                                         })
                                   ],
                                 ),
-                                Container(
-                                  color: Colors.yellow,
-                                ),
-                                Container(
-                                  color: Colors.red,
-                                ),
+                                // financialreport(),
+                                InnerTab(),
+                                InnerTab(),
                               ],
                             ),
                           ),

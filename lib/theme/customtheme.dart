@@ -24,7 +24,7 @@ class CustomTheme with ChangeNotifier {
         inputDecorationTheme: const InputDecorationTheme(
           fillColor: white_background,
           labelStyle: TextStyle(color: Colors.black),
-          hintStyle: TextStyle(color: Colors.grey),
+          hintStyle: TextStyle(color: grey_background),
         ),
         iconTheme: IconThemeData(
           color: Colors.black,
