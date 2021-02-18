@@ -10,6 +10,9 @@ import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
+  // it should be the first line in main method
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 

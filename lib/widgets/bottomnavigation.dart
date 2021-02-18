@@ -94,7 +94,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
   }
 
   Widget streamer() {
-    return SafeArea(child: webviewStreamer());
+    return SafeArea(child: MyApp());
   }
 
   Widget bottomNav() {
