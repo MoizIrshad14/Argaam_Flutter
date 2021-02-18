@@ -24,7 +24,7 @@ class CustomTheme with ChangeNotifier {
         inputDecorationTheme: const InputDecorationTheme(
           fillColor: white_background,
           labelStyle: TextStyle(color: Colors.black),
-          hintStyle: TextStyle(color: Colors.grey),
+          hintStyle: TextStyle(color: grey_background),
         ),
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -42,6 +42,14 @@ class CustomTheme with ChangeNotifier {
           ),
         ),
         textTheme: ThemeData.light().textTheme,
+        primaryTextTheme: TextTheme(
+          headline1: TextStyle(fontSize: 14, color: primary_splash),
+          headline2: TextStyle(
+            color: Colors.black,
+            fontSize: 25,
+          ),
+          caption: TextStyle(fontSize: 14, color: Colors.black),
+        ),
         buttonTheme: ButtonThemeData(
           // 4
           shape:
@@ -81,6 +89,14 @@ class CustomTheme with ChangeNotifier {
             backgroundColor: light_blue_background,
             primary: white_background,
           ),
+        ),
+        primaryTextTheme: TextTheme(
+          headline1: TextStyle(fontSize: 14, color: primary_splash),
+          headline2: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+          ),
+          caption: TextStyle(fontSize: 14, color: Colors.white),
         ),
         buttonTheme: ButtonThemeData(
           shape:

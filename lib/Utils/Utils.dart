@@ -15,6 +15,6 @@ setValueForKey(String value, String key) async {
 
 getCurrentTextDirection() {
   return getValueForKey('Language') == 'ar'
-      ? TextDirection.rtl
-      : TextDirection.ltr;
+      ? TextDirection.ltr
+      : TextDirection.rtl;
 }
