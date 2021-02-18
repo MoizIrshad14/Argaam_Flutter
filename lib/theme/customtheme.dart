@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class CustomTheme with ChangeNotifier {
   static bool _isDarkTheme = true;
-  ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
+  ThemeMode get currentTheme =>
+      _isDarkTheme ? ThemeMode.light : ThemeMode.light;
 
   void toggleTheme() {
     _isDarkTheme = !_isDarkTheme;
@@ -15,7 +16,7 @@ class CustomTheme with ChangeNotifier {
     return ThemeData(
         //2
         primaryColor: primary_background_one,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: white_background,
         //fontFamily: 'Montserrat', //3
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_two,

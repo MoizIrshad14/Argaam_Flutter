@@ -41,7 +41,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
     new TabItem(Icons.search, "My Markets", Colors.orange,
         labelStyle:
             TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-    new TabItem(Icons.layers, "Financial Report", Colors.orange,
+    new TabItem(Icons.message, "Financial Report", Colors.orange,
         labelStyle:
             TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
     new TabItem(Icons.layers, "Streamer", Colors.orange,

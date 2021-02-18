@@ -28,10 +28,16 @@ class _splashscreenState extends State<splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
-              image: AssetImage("assets/icons/logo.png"),
-              color: Colors.white,
-              fit: BoxFit.contain,
-            );
+    return Scaffold(
+      backgroundColor: orange_background,
+      body: Center(
+        child: Container(
+            child: Image.asset(
+          "assets/icons/logo.png",
+          height: 120,
+          width: 120,
+        )),
+      ),
+    );
   }
 }

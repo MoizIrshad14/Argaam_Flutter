@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d3927a9-fdbd-406c-8232-2b4a0252f541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/constants/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/colors.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/theme/customtheme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/theme/customtheme.dart" afterDir="false" />
-    </list>
+    <list default="true" id="5d3927a9-fdbd-406c-8232-2b4a0252f541" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
