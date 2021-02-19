@@ -1,6 +1,7 @@
 import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/screens/login.dart';
+import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class SettingsAlertState extends State<SettingsAlert>
             margin: EdgeInsets.symmetric(horizontal: 20),
             height: 500,
             decoration: ShapeDecoration(
-                color: Colors.white,
+                color: Theme.of(context).accentColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0))),
             child: Padding(
@@ -81,6 +82,7 @@ class SettingsAlertState extends State<SettingsAlert>
                                 onChanged: (value) {
                                   print("VALUE : $value");
                                   setState(() {
+                                    currentTheme.toggleTheme();
                                     status = value;
                                   });
                                 },
@@ -105,9 +107,9 @@ class SettingsAlertState extends State<SettingsAlert>
                     SizedBox(
                       height: 20,
                       child: Divider(
+                        color: Theme.of(context).dividerTheme.color,
                         height: 0.5,
                         thickness: 1,
-                        color: Colors.black54,
                       ),
                     ),
                     Directionality(
@@ -154,9 +156,9 @@ class SettingsAlertState extends State<SettingsAlert>
                     SizedBox(
                       height: 20,
                       child: Divider(
+                        color: Theme.of(context).dividerTheme.color,
                         height: 0.5,
                         thickness: 1,
-                        color: Colors.black54,
                       ),
                     ),
                     Directionality(

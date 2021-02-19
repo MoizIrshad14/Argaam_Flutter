@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Argaam',
       theme: CustomTheme.lightTheme,
       darkTheme: CustomTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: currentTheme.currentTheme,
       builder: (context, widget) => ResponsiveWrapper.builder(
           BouncingScrollWrapper.builder(context, widget),
           maxWidth: 1200,
