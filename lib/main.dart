@@ -1,7 +1,3 @@
-import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
-import 'package:Argaam_Flutter/screens/ArticleDetail.dart';
-import 'package:Argaam_Flutter/screens/login.dart';
-import 'package:Argaam_Flutter/screens/splashscreen.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/theme/customtheme.dart';
 import 'package:Argaam_Flutter/widgets/bottomnavigation.dart';
@@ -11,8 +7,6 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   // it should be the first line in main method
-  WidgetsFlutterBinding.ensureInitialized();
-
   runApp(MyApp());
 }
 

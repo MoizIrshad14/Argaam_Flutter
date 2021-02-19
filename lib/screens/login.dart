@@ -1,7 +1,6 @@
 import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
-import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/widgets/animatedalert.dart';
 import 'package:flutter/material.dart';
 

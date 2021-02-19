@@ -1,5 +1,6 @@
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/widgets/menualert.dart';
+import 'package:Argaam_Flutter/widgets/settingsalert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:Argaam_Flutter/widgets/dropdown.dart';
@@ -41,7 +42,7 @@ class _CustomAppBarMenuState extends State<CustomAppBarMenu> {
             onTap: () {
               showDialog(
                 context: context,
-                builder: (_) => AlertMenu(),
+                builder: (_) => SettingsAlert(),
               );
             },
             child: Container(
