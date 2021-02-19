@@ -11,6 +11,8 @@ class blogsdetails extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _blogsdetailsState extends State<blogsdetails> {
+  bool _isDarkTheme = true;
+  ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.light : ThemeMode.dark;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +25,7 @@ class _blogsdetailsState extends State<blogsdetails> {
                   shape: CircleBorder(),
                   elevation: 0,
                   minimumSize: Size(60, 60),
-                  primary: appbar_serach_background,
+                  primary: Theme.of(context).primaryColor,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -32,7 +34,7 @@ class _blogsdetailsState extends State<blogsdetails> {
                 child: Icon(Icons.arrow_back_ios)),
           ),
           elevation: 0,
-          backgroundColor: white_background,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           centerTitle: true,
           flexibleSpace: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +46,7 @@ class _blogsdetailsState extends State<blogsdetails> {
                       shape: CircleBorder(),
                       elevation: 0,
                       minimumSize: Size(60, 60),
-                      primary: appbar_serach_background,
+                      primary: Theme.of(context).primaryColor,
                     ),
                     onPressed: () {
                       // _displaySnackBar(context);
@@ -65,7 +67,7 @@ class _blogsdetailsState extends State<blogsdetails> {
                       shape: CircleBorder(),
                       elevation: 0,
                       minimumSize: Size(60, 60),
-                      primary: appbar_serach_background,
+                      primary: Theme.of(context).primaryColor,
                     ),
                     onPressed: () {
                       // _displaySnackBar(context);
@@ -108,7 +110,7 @@ class _blogsdetailsState extends State<blogsdetails> {
       margin: EdgeInsets.only(left: 20, right: 20, top: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          color: white_background),
+          color: Theme.of(context).scaffoldBackgroundColor),
       child: Column(
         children: [
           Container(
@@ -185,7 +187,8 @@ class _blogsdetailsState extends State<blogsdetails> {
                               child: //Icon(Icons.messenger_outline)
                                   ImageIcon(
                                       AssetImage("assets/icons/streamer.png"),
-                                      color: Colors.black)),
+                                      color:
+                                          Theme.of(context).iconTheme.color)),
                           Container(
                               padding: EdgeInsets.only(right: 5),
                               child: Icon(
@@ -207,7 +210,7 @@ class _blogsdetailsState extends State<blogsdetails> {
           SizedBox(
             child: Divider(
               height: 1,
-              color: black_background,
+              color: grey_background,
             ),
           ),
           Container(
@@ -225,7 +228,7 @@ class _blogsdetailsState extends State<blogsdetails> {
             child: SizedBox(
               child: Divider(
                 height: 1,
-                color: black_background,
+                color: Theme.of(context).dividerTheme.color,
               ),
             ),
           ),
@@ -310,24 +313,33 @@ class _blogsdetailsState extends State<blogsdetails> {
       margin: EdgeInsets.only(left: 20, right: 20, top: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          color: Colors.white),
+          color: Theme.of(context).scaffoldBackgroundColor),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(350, 50),
-                  onPrimary: black_text,
-                  primary: light_grey_background,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(350, 50),
+                    onPrimary: black_text,
+                    primary: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(8.0),
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  //_displaySnackBar(context);
-                },
-                child: Text("ن القرن الم")),
+                  onPressed: () {
+                    //_displaySnackBar(context);
+                  },
+                  child: Text(
+                    "ن القرن الم",
+                    style: TextStyle(
+                        color: Theme.of(context).dividerTheme.color,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  )),
+            ),
             Container(
                 padding: EdgeInsets.only(top: 15),
                 height: 350,
@@ -351,24 +363,33 @@ class _blogsdetailsState extends State<blogsdetails> {
       margin: EdgeInsets.only(left: 20, right: 20, top: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          color: Colors.white),
+          color: Theme.of(context).scaffoldBackgroundColor),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(350, 50),
-                  onPrimary: black_text,
-                  primary: light_grey_background,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(350, 50),
+                    onPrimary: black_text,
+                    primary: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(8.0),
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  //_displaySnackBar(context);
-                },
-                child: Text("ن القرن الم")),
+                  onPressed: () {
+                    //_displaySnackBar(context);
+                  },
+                  child: Text(
+                    "ن القرن الم",
+                    style: TextStyle(
+                        color: Theme.of(context).dividerTheme.color,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  )),
+            ),
             Container(
                 padding: EdgeInsets.only(top: 15),
                 height: 350,

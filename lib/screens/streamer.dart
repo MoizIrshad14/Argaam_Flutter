@@ -12,15 +12,13 @@ class streamer extends StatefulWidget {
 class _streamerState extends State<streamer> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          appBar: CustomAppBar(),
-          body: const WebView(
-            initialUrl:
-                'https://argaamv2mobileapis.argaam.com/v2.2/json/redirect-with-cookie?articleID=0&appId=0&key=&section=Streamer&langId=1',
-            javascriptMode: JavascriptMode.unrestricted,
-          ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: CustomAppBar(),
+        body: const WebView(
+          initialUrl:
+              'https://argaamv2mobileapis.argaam.com/v2.2/json/redirect-with-cookie?articleID=0&appId=0&key=&section=Streamer&langId=1',
+          javascriptMode: JavascriptMode.unrestricted,
         ),
       ),
     );

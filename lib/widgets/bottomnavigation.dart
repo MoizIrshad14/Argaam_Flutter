@@ -99,7 +99,7 @@ class _bottomnavigationState extends State<bottomnavigation> {
         tabItems,
         controller: _navigationController,
         barHeight: bottomNavBarHeight,
-        barBackgroundColor: Colors.white,
+        barBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
         animationDuration: Duration(milliseconds: 300),
         selectedCallback: (int selectedPos) {
           setState(() {

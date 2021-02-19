@@ -51,7 +51,7 @@ class _CustomAppBarMenuState extends State<CustomAppBarMenu> {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   //borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: light_grey_background),
+                  color: Theme.of(context).primaryColor),
               margin: EdgeInsets.only(right: 10),
               child: Icon(
                 Icons.settings,

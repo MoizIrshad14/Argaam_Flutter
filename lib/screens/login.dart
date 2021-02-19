@@ -2,6 +2,7 @@ import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
 import 'package:Argaam_Flutter/widgets/animatedalert.dart';
+import 'package:Argaam_Flutter/widgets/bottomnavigation.dart';
 import 'package:flutter/material.dart';
 
 class login extends StatefulWidget {

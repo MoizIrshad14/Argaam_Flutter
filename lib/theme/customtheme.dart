@@ -18,6 +18,7 @@ class CustomTheme with ChangeNotifier {
         accentColor: white_background,
         primaryColor: primary_background_one,
         scaffoldBackgroundColor: white_background,
+        backgroundColor: orange_text,
         //fontFamily: 'Montserrat', //3
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_two,
@@ -69,7 +70,7 @@ class CustomTheme with ChangeNotifier {
         accentColor: dark_blue_background,
         cardTheme: CardTheme(color: Colors.yellow),
         primaryColor: light_blue_background,
-        backgroundColor: Colors.yellow,
+        backgroundColor: orange_text,
         //appBarTheme: AppBarTheme(: light_blue_background),
         scaffoldBackgroundColor: dark_blue_background,
         textTheme: ThemeData.dark().textTheme,

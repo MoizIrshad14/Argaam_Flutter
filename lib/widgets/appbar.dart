@@ -1,4 +1,5 @@
 import 'package:Argaam_Flutter/constants/colors.dart';
+import 'package:Argaam_Flutter/widgets/settingsalert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:Argaam_Flutter/widgets/dropdown.dart';
@@ -16,8 +17,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       elevation: 0,
-      backgroundColor: white_background,
       centerTitle: true,
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,9 +44,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   shape: CircleBorder(),
                   elevation: 0,
                   minimumSize: Size(60, 60),
-                  primary: appbar_serach_background,
+                  primary: Theme.of(context).primaryColor,
                 ),
                 onPressed: () {
+                  // SettingsAlert();
                   // _displaySnackBar(context);
                 },
                 child: ImageIcon(
