@@ -93,10 +93,6 @@ class _bottomnavigationState extends State<bottomnavigation> {
     }
   }
 
-  Widget streamer() {
-    return SafeArea(child: streamer());
-  }
-
   Widget bottomNav() {
     return SafeArea(
       child: CircularBottomNavigation(
