@@ -1,6 +1,7 @@
+import 'package:Argaam_Flutter/constants/constants.dart';
 import 'package:Argaam_Flutter/widgets/appbar.dart';
+import 'package:Argaam_Flutter/widgets/loadWebView.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class financialreport extends StatefulWidget {
   @override
@@ -13,11 +14,7 @@ class _financialreportState extends State<financialreport> {
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar(),
-        body: const WebView(
-          initialUrl:
-              'https://argaamv2mobileapis.argaam.com/v2.2/json/redirect-with-cookie?articleID=0&appId=0&key=&section=FinancialRatios&langId=1',
-          javascriptMode: JavascriptMode.unrestricted,
-        ),
+        body: LoadWebViewURL(financialRatiosURL, context),
       ),
     );
   }
