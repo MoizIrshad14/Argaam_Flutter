@@ -35,7 +35,7 @@ class FunkyOverlayState extends State<FunkyOverlay>
           scale: scaleAnimation,
           child: Container(
             decoration: ShapeDecoration(
-                color: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0))),
             child: Padding(

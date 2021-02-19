@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:Argaam_Flutter/Utils/Utils.dart';
+import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
 import 'package:Argaam_Flutter/widgets/appbarmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
@@ -125,17 +126,19 @@ class _menuScreenState extends State<menuScreen> {
         //         ))
         //   ],
         // ),
-        body: Container(
-          color: Colors.grey[200],
-          child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: listitems.length + 1,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return _getUserHeader();
-                }
-                return _rowWidget(index);
-              }),
+        body: CurvedScreenContainer(
+          child: Container(
+            //color: Colors.grey[200],
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: listitems.length + 1,
+                itemBuilder: (context, index) {
+                  if (index == 0) {
+                    return _getUserHeader();
+                  }
+                  return _rowWidget(index);
+                }),
+          ),
         ),
       ),
     );
@@ -164,7 +167,8 @@ class _menuScreenState extends State<menuScreen> {
           width: MediaQuery.of(context).size.width,
           margin: EdgeInsets.fromLTRB(16, 20, 16, 8),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14.0), color: Colors.white),
+              borderRadius: BorderRadius.circular(14.0),
+              color: Theme.of(context).scaffoldBackgroundColor),
           child: Directionality(
             textDirection: getCurrentTextDirection(),
             child: Column(
@@ -175,9 +179,13 @@ class _menuScreenState extends State<menuScreen> {
                     children: [
                       Column(
                         children: [
-                          CircleAvatar(
-                            radius: 35,
-                            backgroundImage: AssetImage("assets/images/ww.png"),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              radius: 35,
+                              backgroundImage:
+                                  AssetImage("assets/images/ww.png"),
+                            ),
                           ),
                         ],
                       ),
@@ -188,7 +196,7 @@ class _menuScreenState extends State<menuScreen> {
                             textDirection: getCurrentTextDirection(),
                             style: TextStyle(
                                 fontSize: 20.0,
-                                color: Colors.black,
+                                //color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
@@ -232,7 +240,7 @@ class _menuScreenState extends State<menuScreen> {
                             " صافياً قدره",
                             style: TextStyle(
                                 fontSize: 16.0,
-                                color: Colors.black,
+                                // color: Colors.black,
                                 fontWeight: FontWeight.normal),
                           ),
                           Text(
@@ -274,7 +282,8 @@ class _menuScreenState extends State<menuScreen> {
         width: MediaQuery.of(context).size.width,
         margin: EdgeInsets.fromLTRB(16, 8, 16, 8),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18.0), color: Colors.white),
+            borderRadius: BorderRadius.circular(18.0),
+            color: Theme.of(context).scaffoldBackgroundColor),
         child: Directionality(
             textDirection: getCurrentTextDirection(),
             child: ListTile(
@@ -287,7 +296,7 @@ class _menuScreenState extends State<menuScreen> {
               title: Text(
                 this.listitems[index - 1],
                 style: TextStyle(
-                    color: Colors.black,
+                    // color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0),
               ),
@@ -295,7 +304,7 @@ class _menuScreenState extends State<menuScreen> {
                 getCurrentTextDirection() == TextDirection.rtl
                     ? Icons.keyboard_arrow_left
                     : Icons.keyboard_arrow_right,
-                color: Colors.black,
+                color: Theme.of(context).iconTheme.color,
               ),
             )),
       ),

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomTheme with ChangeNotifier {
   static bool _isDarkTheme = true;
-  ThemeMode get currentTheme =>
-      _isDarkTheme ? ThemeMode.light : ThemeMode.light;
+  ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.light : ThemeMode.dark;
 
   void toggleTheme() {
     _isDarkTheme = !_isDarkTheme;
@@ -14,13 +13,16 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get lightTheme {
     //1
     return ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: white_background),
         //2
+        accentColor: white_background,
         primaryColor: primary_background_one,
         scaffoldBackgroundColor: white_background,
         //fontFamily: 'Montserrat', //3
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_two,
         ),
+        dividerTheme: DividerThemeData(color: black_background),
         inputDecorationTheme: const InputDecorationTheme(
           fillColor: white_background,
           labelStyle: TextStyle(color: Colors.black),
@@ -48,6 +50,9 @@ class CustomTheme with ChangeNotifier {
             color: Colors.black,
             fontSize: 25,
           ),
+          headline3: TextStyle(
+            color: Colors.orange,
+          ),
           caption: TextStyle(fontSize: 14, color: Colors.black),
         ),
         buttonTheme: ButtonThemeData(
@@ -60,11 +65,13 @@ class CustomTheme with ChangeNotifier {
 
   static ThemeData get darkTheme {
     return ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: dark_blue_background),
+        accentColor: dark_blue_background,
         cardTheme: CardTheme(color: Colors.yellow),
-        primaryColor: dark_blue_background,
+        primaryColor: light_blue_background,
         backgroundColor: Colors.yellow,
         //appBarTheme: AppBarTheme(: light_blue_background),
-        scaffoldBackgroundColor: light_blue_background,
+        scaffoldBackgroundColor: dark_blue_background,
         textTheme: ThemeData.dark().textTheme,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primary_background_card_one,
@@ -73,6 +80,7 @@ class CustomTheme with ChangeNotifier {
           fillColor: dark_blue_background,
           labelStyle: TextStyle(color: Colors.white),
         ),
+        dividerTheme: DividerThemeData(color: white_background),
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
@@ -94,6 +102,10 @@ class CustomTheme with ChangeNotifier {
           headline1: TextStyle(fontSize: 14, color: primary_splash),
           headline2: TextStyle(
             color: Colors.white,
+            fontSize: 25,
+          ),
+          headline3: TextStyle(
+            color: orange_text,
             fontSize: 25,
           ),
           caption: TextStyle(fontSize: 14, color: Colors.white),
