@@ -33,7 +33,8 @@ dependencies:
   country_code_picker: ^1.7.0
   carousel_slider: ^3.0.0
   shared_preferences: ^0.5.12+4
-
+  flutter_animated_dialog: ^1.2.0
+  custom_switch: ^0.0.1
 
 dev_dependencies:
   flutter_test:

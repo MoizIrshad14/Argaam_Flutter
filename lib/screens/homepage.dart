@@ -2,9 +2,11 @@ import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
+import 'package:Argaam_Flutter/widgets/innertab.dart';
 import 'package:Argaam_Flutter/widgets/appbar.dart';
 import 'package:Argaam_Flutter/widgets/homeslider.dart';
 import 'package:Argaam_Flutter/widgets/hometabs.dart';
+import 'package:Argaam_Flutter/widgets/listdetail.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:Argaam_Flutter/screens/blogsdetails.dart';
@@ -58,70 +60,114 @@ class _homepageState extends State<homepage>
             child: Container(
               child: Directionality(
                 textDirection: getCurrentTextDirection(),
-                child: ListView(
-                  children: [
-                    DefaultTabController(
-                      length: 3,
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(15),
-                            child: TabBar(
-                                labelColor: white_text,
-                                unselectedLabelColor: grey_text,
-                                indicatorSize: TabBarIndicatorSize.label,
-                                indicator: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                    color: orange_background),
-                                onTap: (index) {
-                                  print(index);
-                                },
-                                controller: _controller,
-                                tabs: list),
-                          ),
-                          Container(
-                            height: _containerheight,
-                            child: TabBarView(
+                child: DefaultTabController(
+                  length: 3,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          child: TabBar(
+                              labelStyle:
+                                  TextStyle(fontWeight: FontWeight.bold),
+                              labelColor: white_text,
+                              unselectedLabelColor: grey_text,
+                              indicatorSize: TabBarIndicatorSize.label,
+                              indicator: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: orange_background),
+                              onTap: (index) {
+                                print(index);
+                              },
                               controller: _controller,
-                              children: <Widget>[
-                                ListView(
-                                  children: [
-                                    this.getMarketRate(),
-                                    InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      blogsdetails()));
-                                        },
-                                        child: Container(child: homeslider())),
-                                    SizedBox(
-                                      height: 8,
+                              tabs: list),
+                        ),
+                        Container(
+                          height: _containerheight,
+                          child: TabBarView(
+                            controller: _controller,
+                            children: <Widget>[
+                              CustomScrollView(
+                                slivers: [
+                                  SliverToBoxAdapter(
+                                    child: Column(
+                                      children: [
+                                        //market rates
+                                        this.getMarketRate(),
+                                        //blogs
+                                        InkWell(
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          blogsdetails()));
+                                            },
+                                            child:
+                                                Container(child: homeslider())),
+                                        //list
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        listdetail()));
+                                          },
+                                          child: Container(
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                primary: false,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: 5,
+                                                itemBuilder: (context, index) {
+                                                  return this.getArticle(index);
+                                                }),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 300,
+                                        )
+                                      ],
                                     ),
-                                    ListView.builder(
-                                        physics: NeverScrollableScrollPhysics(),
-                                        shrinkWrap: true,
-                                        itemCount: 5,
-                                        itemBuilder: (context, index) {
-                                          return this.getArticle(index);
-                                        })
-                                  ],
-                                ),
-                                Container(
-                                  color: Colors.yellow,
-                                ),
-                                Container(
-                                  color: Colors.red,
-                                ),
-                              ],
-                            ),
+                                  ),
+                                ],
+                              ),
+                              // ListView(
+                              //   children: [
+                              //     this.getMarketRate(),
+                              //     InkWell(
+                              //         onTap: () {
+                              //           Navigator.push(
+                              //               context,
+                              //               MaterialPageRoute(
+                              //                   builder: (context) =>
+                              //                       blogsdetails()));
+                              //         },
+                              //         child: Container(child: homeslider())),
+                              //     SizedBox(
+                              //       height: 8,
+                              //     ),
+                              //     ListView.builder(
+                              //         physics: NeverScrollableScrollPhysics(),
+                              //         shrinkWrap: true,
+                              //         primary: false,
+                              //         itemCount: 5,
+                              //         itemBuilder: (context, index) {
+                              //           return this.getArticle(index);
+                              //         })
+                              //   ],
+                              // ),
+                              // // financialreport(),
+                              InnerTab(),
+                              InnerTab(),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -137,7 +183,7 @@ class _homepageState extends State<homepage>
       child: Container(
           height: 110,
           decoration: BoxDecoration(
-              color: white_background,
+              color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.all(Radius.circular(12))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -170,9 +216,7 @@ class _homepageState extends State<homepage>
               Container(
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: VerticalDivider(
-                  width: 1,
-                  color: Colors.white,
-                ),
+                    width: 1, color: Theme.of(context).dividerTheme.color),
               ),
               Container(
                 height: 120,
@@ -230,13 +274,13 @@ class _homepageState extends State<homepage>
             padding: const EdgeInsets.all(8.0),
             child: Container(
                 decoration: BoxDecoration(
-                    color: white_background,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.all(Radius.circular(12))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(15),
+                      margin: EdgeInsets.all(18),
                       height: 100,
                       width: 100,
                       decoration: BoxDecoration(
@@ -306,7 +350,9 @@ class _homepageState extends State<homepage>
                                             ImageIcon(
                                                 AssetImage(
                                                     "assets/icons/streamer.png"),
-                                                color: Colors.black)),
+                                                color: Theme.of(context)
+                                                    .dividerTheme
+                                                    .color)),
                                     Container(
                                         padding: EdgeInsets.only(right: 5),
                                         child: Icon(Icons.favorite_outline)),
