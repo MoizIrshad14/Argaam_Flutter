@@ -17,7 +17,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      backgroundColor: Theme.of(context).accentColor,
       elevation: 0,
       centerTitle: true,
       flexibleSpace: Row(

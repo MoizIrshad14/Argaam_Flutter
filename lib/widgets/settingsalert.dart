@@ -78,7 +78,8 @@ class SettingsAlertState extends State<SettingsAlert>
                             children: [
                               CustomSwitch(
                                 activeColor: Colors.orangeAccent,
-                                value: status,
+                                value: Theme.of(context).brightness ==
+                                    Brightness.dark,
                                 onChanged: (value) {
                                   print("VALUE : $value");
                                   setState(() {

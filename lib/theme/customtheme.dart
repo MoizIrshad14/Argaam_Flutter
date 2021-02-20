@@ -13,7 +13,7 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get lightTheme {
     //1
     return ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: white_background),
+        //appBarTheme: AppBarTheme(backgroundColor: white_background),
         //2
         accentColor: white_background,
         primaryColor: primary_background_one,
@@ -46,16 +46,17 @@ class CustomTheme with ChangeNotifier {
         ),
         textTheme: ThemeData.light().textTheme,
         primaryTextTheme: TextTheme(
-          headline1: TextStyle(fontSize: 14, color: primary_splash),
-          headline2: TextStyle(
-            color: Colors.black,
-            fontSize: 25,
-          ),
-          headline3: TextStyle(
-            color: Colors.orange,
-          ),
-          caption: TextStyle(fontSize: 14, color: Colors.black),
-        ),
+            headline1: TextStyle(fontSize: 14, color: primary_splash),
+            headline2: TextStyle(
+              color: Colors.black,
+              fontSize: 25,
+            ),
+            headline3: TextStyle(
+              color: Colors.orange,
+            ),
+            headline4: TextStyle(color: Colors.black, fontSize: 22),
+            caption: TextStyle(fontSize: 14, color: Colors.black),
+            bodyText2: TextStyle(fontSize: 18, color: Colors.grey)),
         buttonTheme: ButtonThemeData(
           // 4
           shape:
@@ -66,7 +67,8 @@ class CustomTheme with ChangeNotifier {
 
   static ThemeData get darkTheme {
     return ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: dark_blue_background),
+        //appBarTheme: AppBarTheme(backgroundColor: dark_blue_background),
+        brightness: Brightness.dark,
         accentColor: dark_blue_background,
         cardTheme: CardTheme(color: Colors.yellow),
         primaryColor: light_blue_background,
@@ -109,7 +111,9 @@ class CustomTheme with ChangeNotifier {
             color: orange_text,
             fontSize: 25,
           ),
+          bodyText2: TextStyle(fontSize: 18, color: Colors.grey),
           caption: TextStyle(fontSize: 14, color: Colors.white),
+          headline4: TextStyle(color: Colors.white, fontSize: 22),
         ),
         buttonTheme: ButtonThemeData(
           shape:

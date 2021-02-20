@@ -31,7 +31,7 @@ class _listdetailState extends State<listdetail> {
               child: Icon(Icons.arrow_back_ios)),
         ),
         elevation: 0,
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        backgroundColor: Theme.of(context).accentColor,
         centerTitle: true,
         title: Container(
             //margin: EdgeInsets.only(left: 120),

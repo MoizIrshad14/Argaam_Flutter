@@ -13,6 +13,8 @@ import 'package:Argaam_Flutter/screens/blogsdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ArticleDetail.dart';
+
 class homepage extends StatefulWidget {
   @override
   _homepageState createState() => _homepageState();
@@ -102,7 +104,7 @@ class _homepageState extends State<homepage>
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          blogsdetails()));
+                                                          ArticleDetail()));
                                             },
                                             child:
                                                 Container(child: homeslider())),
@@ -160,8 +162,12 @@ class _homepageState extends State<homepage>
                               //   ],
                               // ),
                               // // financialreport(),
-                              InnerTab(),
-                              InnerTab(),
+                              InnerTab(
+                                containerHeight: _containerheight,
+                              ),
+                              InnerTab(
+                                containerHeight: _containerheight,
+                              ),
                             ],
                           ),
                         ),

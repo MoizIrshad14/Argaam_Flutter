@@ -19,7 +19,7 @@ class _CustomAppBarMenuState extends State<CustomAppBarMenu> {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      backgroundColor: Theme.of(context).accentColor,
       centerTitle: true,
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -34,7 +34,7 @@ class _blogsdetailsState extends State<blogsdetails> {
                 child: Icon(Icons.arrow_back_ios)),
           ),
           elevation: 0,
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+          backgroundColor: Theme.of(context).accentColor,
           centerTitle: true,
           flexibleSpace: Row(
             mainAxisAlignment: MainAxisAlignment.start,

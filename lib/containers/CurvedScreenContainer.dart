@@ -34,6 +34,7 @@ class CurvedScreenContainer extends StatelessWidget {
                   Expanded(
                       flex: 70,
                       child: Container(
+                        padding: EdgeInsets.only(top: 15),
                         decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.vertical(
