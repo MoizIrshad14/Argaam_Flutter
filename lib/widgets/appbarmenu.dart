@@ -32,32 +32,37 @@ class _CustomAppBarMenuState extends State<CustomAppBarMenu> {
           //       width: 60,
           //       height: 60,
           //     )),
-          Container(
-              child: Image.asset(
-            "assets/icons/appbaricon.png",
-            height: 100,
-            width: 100,
-          )),
-          InkWell(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (_) => SettingsAlert(),
-              );
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
             child: Container(
-              height: 60,
-              width: 60,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  //borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Theme.of(context).primaryColor),
-              margin: EdgeInsets.only(right: 10),
-              child: Icon(
-                Icons.settings,
-                color: grey_background,
-              ),
+                child: Image.asset(
+              "assets/icons/appbaricon.png",
+              height: 100,
+              width: 100,
+            )),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              right: 15,
+              top: 5,
             ),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  elevation: 0,
+                  minimumSize: Size(60, 60),
+                  primary: Theme.of(context).primaryColor,
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => SettingsAlert(),
+                  );
+                },
+                child: Icon(
+                  Icons.settings,
+                  color: grey_background,
+                )),
           ),
         ],
       ),

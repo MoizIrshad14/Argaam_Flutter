@@ -60,40 +60,43 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(
-                              "assets/icons/appbaricon.png",
-                              fit: BoxFit.contain,
-                              height: height * .6,
-                              width: width * .25,
+                            Container(
+                              margin: EdgeInsets.only(top: 5, left: 10),
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: CircleBorder(),
+                                    elevation: 0,
+                                    minimumSize: Size(60, 60),
+                                    primary: Theme.of(context).primaryColor,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    // _displaySnackBar(context);
+                                  },
+                                  child: Icon(Icons.arrow_back_ios)),
                             ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  "assets/icons/BackRound.png",
-                                  fit: BoxFit.contain,
-                                  height: iconHeight,
-                                  width: iconWidth,
-                                ),
-                                SizedBox(
-                                  width: width * .025,
-                                ),
-                                Image.asset(
-                                  "assets/icons/FavRound.png",
-                                  fit: BoxFit.contain,
-                                  height: iconHeight,
-                                  width: iconWidth,
-                                ),
-                                SizedBox(
-                                  width: width * .025,
-                                ),
-                                Image.asset(
-                                  "assets/icons/menuRound.png",
-                                  fit: BoxFit.contain,
-                                  height: iconHeight,
-                                  width: iconWidth,
-                                ),
-                              ],
-                            )
+                            Container(
+                                child: Image.asset(
+                              "assets/icons/appbaricon.png",
+                              height: 100,
+                              width: 100,
+                            )),
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: 5,
+                              ),
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: CircleBorder(),
+                                    elevation: 0,
+                                    minimumSize: Size(60, 60),
+                                    primary: Theme.of(context).primaryColor,
+                                  ),
+                                  onPressed: () {
+                                    // _displaySnackBar(context);
+                                  },
+                                  child: Icon(Icons.favorite_outline)),
+                            ),
                           ],
                         ))),
                 Expanded(

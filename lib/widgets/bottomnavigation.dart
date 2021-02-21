@@ -83,9 +83,9 @@ class _bottomnavigationState extends State<bottomnavigation> {
       case 1:
         return mymarkets();
       case 2:
-        return financialreport();
+        return mymarkets();
       case 3:
-        return streamer();
+        return mymarkets();
       case 4:
         return menuScreen();
       default:
