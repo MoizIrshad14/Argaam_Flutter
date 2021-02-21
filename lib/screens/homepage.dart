@@ -334,7 +334,7 @@ class _homepageState extends State<homepage>
                       )));
         },
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -342,6 +342,7 @@ class _homepageState extends State<homepage>
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
                     decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
                         borderRadius: BorderRadius.all(Radius.circular(12))),
