@@ -28,6 +28,7 @@ class _loginState extends State<login> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         // appBar: AppBar(
         //   elevation: 0,
         //   backgroundColor: white_background,
@@ -52,7 +53,6 @@ class _loginState extends State<login> {
           child: CurvedScreenContainer(
             child: ListView(
               padding: EdgeInsets.only(top: 10),
-              physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 Container(
                   // margin: EdgeInsets.only(left: 10),
@@ -119,7 +119,7 @@ class _loginState extends State<login> {
                             color: primary_orange, size: 25.0),
                         filled: true,
                         labelText: 'بريد الالكتروني',
-                        labelStyle: TextStyle(fontSize: 20, color: black_text),
+                        labelStyle: TextStyle(fontSize: 20),
                       ),
                     ),
                   ),
@@ -145,7 +145,7 @@ class _loginState extends State<login> {
                             color: primary_orange, size: 25.0),
                         filled: true,
                         labelText: 'كلمة المرور',
-                        labelStyle: TextStyle(fontSize: 20, color: black_text),
+                        labelStyle: TextStyle(fontSize: 20),
                         errorStyle: TextStyle(
                           color: primary_text_one,
                         ),

@@ -105,64 +105,62 @@ class _homepageState extends State<homepage>
                 textDirection: getCurrentTextDirection(),
                 child: DefaultTabController(
                   length: 3,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          child: TabBar(
-                              labelStyle:
-                                  TextStyle(fontWeight: FontWeight.bold),
-                              labelColor: white_text,
-                              unselectedLabelColor: grey_text,
-                              indicatorSize: TabBarIndicatorSize.label,
-                              indicator: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: orange_background),
-                              onTap: (index) {
-                                print(index);
-                              },
-                              controller: _controller,
-                              tabs: list),
-                        ),
-                        Container(
-                          height: _containerheight,
-                          child: TabBarView(
+                  child: ListView(
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(15),
+                        child: TabBar(
+                            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                            labelColor: white_text,
+                            unselectedLabelColor: grey_text,
+                            indicatorSize: TabBarIndicatorSize.label,
+                            indicator: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                color: orange_background),
+                            onTap: (index) {
+                              print(index);
+                            },
                             controller: _controller,
-                            children: <Widget>[
-                              CustomScrollView(
-                                slivers: [
-                                  SliverToBoxAdapter(
-                                    child: Column(
-                                      children: [
-                                        //market rates
-                                        this.getMarketRate(),
-                                        //blogs
-                                        if (_loaded && _model.data != null)
-                                          Container(
-                                              child: homeslider(
-                                            model: _model,
-                                          ))
-                                        else
-                                          SizedBox(
-                                              height: 100,
-                                              width: 300,
-                                              child: Center(
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  strokeWidth: 10,
-                                                  valueColor:
-                                                      AlwaysStoppedAnimation(
-                                                          Theme.of(context)
-                                                              .primaryTextTheme
-                                                              .headline1
-                                                              .color),
-                                                ),
-                                              )),
-                                        //list
-                                        if (_loaded && _model.data != null)
-                                          Container(
+                            tabs: list),
+                      ),
+                      Container(
+                        height: _containerheight,
+                        child: TabBarView(
+                          controller: _controller,
+                          children: <Widget>[
+                            CustomScrollView(
+                              slivers: [
+                                SliverToBoxAdapter(
+                                  child: Column(
+                                    children: [
+                                      //market rates
+                                      this.getMarketRate(),
+                                      //blogs
+                                      if (_loaded && _model.data != null)
+                                        Container(
+                                            child: homeslider(
+                                          model: _model,
+                                        ))
+                                      else
+                                        SizedBox(
+                                            height: 100,
+                                            width: 300,
+                                            child: Center(
+                                              child: CircularProgressIndicator(
+                                                strokeWidth: 10,
+                                                valueColor:
+                                                    AlwaysStoppedAnimation(
+                                                        Theme.of(context)
+                                                            .primaryTextTheme
+                                                            .headline1
+                                                            .color),
+                                              ),
+                                            )),
+                                      //list
+                                      if (_loaded && _model.data != null)
+                                        Container(
                                             child: ListView.builder(
                                                 shrinkWrap: true,
                                                 primary: false,
@@ -171,54 +169,64 @@ class _homepageState extends State<homepage>
                                                 itemBuilder: (context, index) {
                                                   return this.getArticle(
                                                       _model.data[index]);
-                                                }),
-                                          ),
+                                                })),
 
-                                        Container(
-                                          height: 300,
-                                        )
-                                      ],
-                                    ),
+                                      Container(
+                                        height: 300,
+                                      )
+                                    ],
                                   ),
-                                ],
-                              ),
-                              // ListView(
-                              //   children: [
-                              //     this.getMarketRate(),
-                              //     InkWell(
-                              //         onTap: () {
-                              //           Navigator.push(
-                              //               context,
-                              //               MaterialPageRoute(
-                              //                   builder: (context) =>
-                              //                       blogsdetails()));
-                              //         },
-                              //         child: Container(child: homeslider())),
-                              //     SizedBox(
-                              //       height: 8,
-                              //     ),
-                              //     ListView.builder(
-                              //         physics: NeverScrollableScrollPhysics(),
-                              //         shrinkWrap: true,
-                              //         primary: false,
-                              //         itemCount: 5,
-                              //         itemBuilder: (context, index) {
-                              //           return this.getArticle(index);
-                              //         })
-                              //   ],
-                              // ),
-                              // // financialreport(),
-                              InnerTab(
-                                containerHeight: _containerheight,
-                              ),
-                              InnerTab(
-                                containerHeight: _containerheight,
-                              ),
-                            ],
-                          ),
+                                ),
+                              ],
+                            ),
+                            // ListView(
+                            //   children: [
+                            //     this.getMarketRate(),
+                            //     InkWell(
+                            //         onTap: () {
+                            //           Navigator.push(
+                            //               context,
+                            //               MaterialPageRoute(
+                            //                   builder: (context) =>
+                            //                       blogsdetails()));
+                            //         },
+                            //         child: Container(child: homeslider())),
+                            //     SizedBox(
+                            //       height: 8,
+                            //     ),
+                            //     ListView.builder(
+                            //         physics: NeverScrollableScrollPhysics(),
+                            //         shrinkWrap: true,
+                            //         primary: false,
+                            //         itemCount: 5,
+                            //         itemBuilder: (context, index) {
+                            //           return this.getArticle(index);
+                            //         })
+                            //   ],
+                            // ),
+                            // // financialreport(),
+                            // CustomScrollView(
+                            //   slivers: [
+                            //     SliverToBoxAdapter(
+                            //       child: Container(
+                            //         height: _containerheight,
+                            //         child: InnerTab(
+                            //           containerHeight: _containerheight,
+                            //         ),
+                            //       ),
+                            //     )
+                            //   ],
+                            // ),
+                            InnerTab(
+                              containerHeight: _containerheight,
+                            ),
+                            InnerTab(
+                              containerHeight: _containerheight,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -326,7 +334,7 @@ class _homepageState extends State<homepage>
                       )));
         },
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -341,7 +349,7 @@ class _homepageState extends State<homepage>
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.all(18),
+                          margin: EdgeInsets.all(15),
                           height: 100,
                           width: 100,
                           decoration: BoxDecoration(
