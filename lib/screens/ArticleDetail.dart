@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
 import 'package:Argaam_Flutter/models/ArticleResponse.dart';
+import 'package:Argaam_Flutter/theme/customtheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,10 @@ class _ArticleDetailState extends State<ArticleDetail> {
   void loadArticle() async {
     var response = await http.get(
         'https://argaamv2mobileapis.argaam.com/v2.2/json//get-article?articleid=${widget.articleId}&langId=1&isgzip=false',
-        headers: {"DeviceToken": "asdasd"});
+        headers: {
+          "DeviceToken": "asdasd",
+          'isDarker': (CustomTheme.isDark()).toString(),
+        });
     if (response.statusCode == 200) {
       setState(() {
         loaded = true;
