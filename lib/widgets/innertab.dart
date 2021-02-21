@@ -114,8 +114,12 @@ class _InnerTabState extends State<InnerTab>
                                     height: 350,
                                     width: MediaQuery.of(context).size.width,
                                     child: Image(
-                                      image:
-                                          AssetImage('assets/images/table.png'),
+                                      image: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? AssetImage(
+                                              'assets/images/table.png')
+                                          : AssetImage(
+                                              'assets/images/table_dark.png'),
                                     )),
                                 // Container(
                                 //   padding: EdgeInsets.symmetric(
@@ -169,8 +173,12 @@ class _InnerTabState extends State<InnerTab>
                                     height: 350,
                                     width: MediaQuery.of(context).size.width,
                                     child: Image(
-                                      image:
-                                          AssetImage('assets/images/table.png'),
+                                      image: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? AssetImage(
+                                              'assets/images/table.png')
+                                          : AssetImage(
+                                              'assets/images/table_dark.png'),
                                     )),
                                 // Container(
                                 //   padding: EdgeInsets.symmetric(
