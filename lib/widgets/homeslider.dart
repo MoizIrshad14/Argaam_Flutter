@@ -57,7 +57,9 @@ class homeslider extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               image: DecorationImage(
-                image: NetworkImage(model.data[index].articleImageUrl),
+                image: !model.data[index].articleImageUrl.contains("http")
+                    ? AssetImage("assets/images/blog.png")
+                    : NetworkImage(model.data[index].articleImageUrl),
                 fit: BoxFit.cover,
               ),
             ),

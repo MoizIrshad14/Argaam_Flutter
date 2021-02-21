@@ -16,7 +16,7 @@ import 'package:Argaam_Flutter/screens/blogsdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:Argaam_Flutter/theme/customtheme.dart';
 import 'ArticleDetail.dart';
 
 class homepage extends StatefulWidget {
@@ -56,7 +56,7 @@ class _homepageState extends State<homepage>
       'UserID': '',
       'LangID': '1',
       'OffSet': '300',
-      'isDarker': 'false',
+      'isDarker': (CustomTheme.isDark()).toString(),
       'Content-Type': 'application/json'
     };
     var body =

@@ -1,3 +1,4 @@
+import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/theme/customtheme.dart';
 import 'package:Argaam_Flutter/widgets/bottomnavigation.dart';
@@ -18,11 +19,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  ThemeMode currentThemeMode = ThemeMode.light;
   @override
   void initState() {
     super.initState();
     currentTheme.addListener(() {
       setState(() {});
+    });
+    getValueForKeyAsync("themeDark").then((val) {
+      setState(() {
+        currentTheme.setDarkTheme(val == "true");
+      });
     });
   }
 
