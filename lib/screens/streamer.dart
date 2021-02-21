@@ -13,13 +13,9 @@ class streamer extends StatefulWidget {
 class _streamerState extends State<streamer> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          appBar: CustomAppBar(),
-          body: LoadWebViewURL(streamerURL, context),
-        ),
-      ),
+    return Scaffold(
+      appBar: CustomAppBar(),
+      body: LoadWebViewURL(streamerURL, context),
     );
   }
 }

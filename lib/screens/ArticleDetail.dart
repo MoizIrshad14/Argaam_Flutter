@@ -9,7 +9,8 @@ import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import 'package:http/http.dart' as http;
 
 class ArticleDetail extends StatefulWidget {
-  ArticleDetail({Key key}) : super(key: key);
+  final int articleId;
+  ArticleDetail({Key key, this.articleId = 1443153}) : super(key: key);
 
   @override
   _ArticleDetailState createState() => _ArticleDetailState();
@@ -29,7 +30,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
 
   void loadArticle() async {
     var response = await http.get(
-        'https://argaamv2mobileapis.argaam.com/v2.2/json//get-article?articleid=1443153&langId=1&isgzip=false',
+        'https://argaamv2mobileapis.argaam.com/v2.2/json//get-article?articleid=${widget.articleId}&langId=1&isgzip=false',
         headers: {"DeviceToken": "asdasd"});
     if (response.statusCode == 200) {
       setState(() {
