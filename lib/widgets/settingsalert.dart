@@ -59,13 +59,16 @@ class SettingsAlertState extends State<SettingsAlert>
                       padding: EdgeInsets.only(bottom: 15.0),
                       child: Text(
                         "إعدادات",
-                        style: TextStyle(fontSize: 25),
+                        style: Theme.of(context).primaryTextTheme.headline4,
                       ),
                     ),
                     Directionality(
                       textDirection: getCurrentTextDirection(),
                       child: Text('.قم بتشغيل وضع الظلام والضوء من هنا',
-                          style: TextStyle(fontSize: 20)),
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline4
+                              .copyWith(fontSize: 20)),
                     ),
                     SizedBox(height: 5),
                     Padding(
@@ -96,10 +99,16 @@ class SettingsAlertState extends State<SettingsAlert>
                               /// some operation here ...
                               if (status == true) {
                                 return Text('وضع الظلام',
-                                    style: TextStyle(fontSize: 20));
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline4
+                                        .copyWith(fontSize: 20));
                               } else
                                 return Text('وضع الضوء',
-                                    style: TextStyle(fontSize: 20));
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline4
+                                        .copyWith(fontSize: 20));
                             })),
                           ),
                         ],
@@ -116,7 +125,10 @@ class SettingsAlertState extends State<SettingsAlert>
                     Directionality(
                       textDirection: getCurrentTextDirection(),
                       child: Text(".تغيير اللغة من الإنجليزية إلى العربية",
-                          style: TextStyle(fontSize: 20)),
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline4
+                              .copyWith(fontSize: 20)),
                     ),
                     SizedBox(height: 5),
                     Padding(
@@ -145,10 +157,16 @@ class SettingsAlertState extends State<SettingsAlert>
                               /// some operation here ...
                               if (statuslan == true) {
                                 return Text('الإنجليزية',
-                                    style: TextStyle(fontSize: 20));
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline4
+                                        .copyWith(fontSize: 20));
                               } else
                                 return Text("عربي",
-                                    style: TextStyle(fontSize: 20));
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline4
+                                        .copyWith(fontSize: 20));
                             })),
                           ),
                         ],
@@ -194,10 +212,16 @@ class SettingsAlertState extends State<SettingsAlert>
                               /// some operation here ...
                               if (statusnoti == true) {
                                 return Text('تشغيل',
-                                    style: TextStyle(fontSize: 20));
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline4
+                                        .copyWith(fontSize: 20));
                               } else
                                 return Text("إيقاف",
-                                    style: TextStyle(fontSize: 20));
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline4
+                                        .copyWith(fontSize: 20));
                             })),
                           ),
                         ],

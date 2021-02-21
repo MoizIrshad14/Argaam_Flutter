@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
+import 'package:Argaam_Flutter/models/HomeArticlesResponse.dart';
 import 'package:Argaam_Flutter/theme/config.dart';
 import 'package:Argaam_Flutter/widgets/innertab.dart';
 import 'package:Argaam_Flutter/widgets/appbar.dart';
@@ -12,6 +15,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:Argaam_Flutter/screens/blogsdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import 'ArticleDetail.dart';
 
@@ -23,6 +27,8 @@ class homepage extends StatefulWidget {
 class _homepageState extends State<homepage>
     with SingleTickerProviderStateMixin {
   TabController _controller;
+  HomeArticlesResponse _model;
+  bool _loaded = false;
   int _selectedIndex = 0;
 
   List<Widget> list = [
@@ -36,7 +42,42 @@ class _homepageState extends State<homepage>
     super.initState();
     // Create TabController for getting the index of current tab
     _controller = TabController(length: list.length, vsync: this);
+    fetchData();
     //_containerheight = MediaQuery.of(context).size.height;
+  }
+
+  void fetchData() async {
+    var headers = {
+      'Version': '3.4.4',
+      'DeviceID': '',
+      'DeviceToken':
+          '9A3177ED5E44EA2EE5AD14739AD857807BF9483660476D6294BCE6385F7D6101',
+      'CurrentUserId': '0',
+      'UserID': '',
+      'LangID': '1',
+      'OffSet': '300',
+      'isDarker': 'false',
+      'Content-Type': 'application/json'
+    };
+    var body =
+        '''{\r\n    "param":{\r\n        "pageNo":1,\r\n        "pageSize":30\r\n    }\r\n}''';
+    var response = await http.post(
+        Uri.parse(
+            'https://argaamv2mobileapis.argaam.com/v2.2/json/article-listing/Market-News-Saudi'),
+        body: body,
+        headers: headers);
+    if (response.statusCode == 200) {
+      HomeArticlesResponse model =
+          HomeArticlesResponse.fromJson(jsonDecode(response.body));
+      model.data = model.data
+          .where((D) =>
+              (D.articleImageUrl != null && D.articleImageUrl.trim() != ""))
+          .toList();
+      setState(() {
+        _model = model;
+        _loaded = true;
+      });
+    }
   }
 
   @override
@@ -97,36 +138,39 @@ class _homepageState extends State<homepage>
                                       //market rates
                                       this.getMarketRate(),
                                       //blogs
-                                      InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ArticleDetail()));
-                                          },
-                                          child:
-                                              Container(child: homeslider())),
+                                      if (_loaded && _model.data != null)
+                                        Container(
+                                            child: homeslider(
+                                          model: _model,
+                                        ))
+                                      else
+                                        SizedBox(
+                                            height: 100,
+                                            width: 300,
+                                            child: Center(
+                                              child: CircularProgressIndicator(
+                                                strokeWidth: 10,
+                                                valueColor:
+                                                    AlwaysStoppedAnimation(
+                                                        Theme.of(context)
+                                                            .primaryTextTheme
+                                                            .headline1
+                                                            .color),
+                                              ),
+                                            )),
                                       //list
-                                      InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      listdetail()));
-                                        },
-                                        child: Container(
-                                          child: ListView.builder(
-                                              shrinkWrap: true,
-                                              primary: false,
-                                              scrollDirection: Axis.vertical,
-                                              itemCount: 5,
-                                              itemBuilder: (context, index) {
-                                                return this.getArticle(index);
-                                              }),
-                                        ),
-                                      ),
+                                      if (_loaded && _model.data != null)
+                                        Container(
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                primary: false,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: _model.data.length,
+                                                itemBuilder: (context, index) {
+                                                  return this.getArticle(
+                                                      _model.data[index]);
+                                                })),
+
                                       Container(
                                         height: 300,
                                       )
@@ -279,117 +323,125 @@ class _homepageState extends State<homepage>
     );
   }
 
-  Widget getArticle(int index) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).scaffoldBackgroundColor,
-                    borderRadius: BorderRadius.all(Radius.circular(12))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(15),
-                      height: 100,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/blog.png"),
-                          fit: BoxFit.cover,
+  Widget getArticle(Data data) {
+    return InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ArticleDetail(
+                        articleId: data.articleID,
+                      )));
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        borderRadius: BorderRadius.all(Radius.circular(12))),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(15),
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            image: DecorationImage(
+                              image: NetworkImage(data.articleImageUrl),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Directionality(
-                      textDirection: getCurrentTextDirection(),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 10),
-                            child: Row(children: [Text("11/12/2020")]),
-                          ),
-                          SizedBox(
-                            height: 3.0,
-                          ),
-                          Text(
-                            "حقق مصرف الراجحي ربحاً صافياً قدره 10.2 ",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 3.0,
-                          ),
-                          Text(
-                            "مليار ريال للسنة المالية 2019",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Directionality(
+                          textDirection: getCurrentTextDirection(),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                      padding: EdgeInsets.only(left: 5),
-                                      child: Icon(Icons.access_time)),
-                                  Text(
-                                    "قبل 45 دقيقة",
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: Row(children: [Text(data.postedDate)]),
+                              ),
+                              SizedBox(
+                                height: 3.0,
+                              ),
+                              SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * .55,
+                                  child: Text(
+                                    data.title,
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
+                                  )),
+                              SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                          padding: EdgeInsets.only(left: 5),
+                                          child: Icon(Icons.access_time)),
+                                      Text(
+                                        data.postedDate,
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(right: 50),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          data.commentsCount.toString(),
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Container(
+                                            padding: EdgeInsets.only(right: 5),
+                                            child: //Icon(Icons.messenger_outline)
+                                                ImageIcon(
+                                                    AssetImage(
+                                                        "assets/icons/streamer.png"),
+                                                    color: Theme.of(context)
+                                                        .dividerTheme
+                                                        .color)),
+                                        Container(
+                                            padding: EdgeInsets.only(right: 5),
+                                            child:
+                                                Icon(Icons.favorite_outline)),
+                                        Container(
+                                            padding: EdgeInsets.only(
+                                                right: 5, left: 10),
+                                            child: Icon(Icons.arrow_upward)),
+                                      ],
+                                    ),
                                   )
                                 ],
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(right: 50),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "45",
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Container(
-                                        padding: EdgeInsets.only(right: 5),
-                                        child: //Icon(Icons.messenger_outline)
-                                            ImageIcon(
-                                                AssetImage(
-                                                    "assets/icons/streamer.png"),
-                                                color: Theme.of(context)
-                                                    .dividerTheme
-                                                    .color)),
-                                    Container(
-                                        padding: EdgeInsets.only(right: 5),
-                                        child: Icon(Icons.favorite_outline)),
-                                    Container(
-                                        padding:
-                                            EdgeInsets.only(right: 5, left: 10),
-                                        child: Icon(Icons.arrow_upward)),
-                                  ],
-                                ),
                               )
                             ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+              SizedBox(height: 10)
+            ],
           ),
-          SizedBox(height: 10)
-        ],
-      ),
-    );
+        ));
   }
 }

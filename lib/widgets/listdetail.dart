@@ -1,10 +1,13 @@
 import 'package:Argaam_Flutter/Utils/Utils.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
+import 'package:Argaam_Flutter/models/HomeArticlesResponse.dart';
 import 'package:Argaam_Flutter/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class listdetail extends StatefulWidget {
+  final HomeArticlesResponse model;
+  listdetail({this.model});
   @override
   _listdetailState createState() => _listdetailState();
 }
