@@ -3,10 +3,50 @@ import 'dart:convert';
 import 'package:Argaam_Flutter/constants/colors.dart';
 import 'package:Argaam_Flutter/containers/CurvedScreenContainer.dart';
 import 'package:Argaam_Flutter/models/ArticleResponse.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import 'package:http/http.dart' as http;
+
+class PlatformViewVerticalGestureRecognizer
+    extends VerticalDragGestureRecognizer {
+  PlatformViewVerticalGestureRecognizer({PointerDeviceKind kind})
+      : super(kind: kind);
+
+  Offset _dragDistance = Offset.zero;
+
+  @override
+  void addPointer(PointerEvent event) {
+    startTrackingPointer(event.pointer);
+  }
+
+  @override
+  void handleEvent(PointerEvent event) {
+    _dragDistance = _dragDistance + event.delta;
+    if (event is PointerMoveEvent) {
+      final double dy = _dragDistance.dy.abs();
+      final double dx = _dragDistance.dx.abs();
+
+      if (dy > dx && dy > kTouchSlop) {
+        // vertical drag - accept
+        resolve(GestureDisposition.accepted);
+        _dragDistance = Offset.zero;
+      } else if (dx > kTouchSlop && dx > dy) {
+        // horizontal drag - stop tracking
+        stopTrackingPointer(event.pointer);
+        _dragDistance = Offset.zero;
+      }
+    }
+  }
+
+  @override
+  String get debugDescription => 'horizontal drag (platform view)';
+
+  @override
+  void didStopTrackingLastPointer(int pointer) {}
+}
 
 class ArticleDetail extends StatefulWidget {
   final int articleId;
@@ -28,6 +68,8 @@ class _ArticleDetailState extends State<ArticleDetail> {
     loadArticle();
   }
 
+  @override
+  void dispose() {}
   void loadArticle() async {
     var response = await http.get(
         'https://argaamv2mobileapis.argaam.com/v2.2/json//get-article?articleid=${widget.articleId}&langId=1&isgzip=false',
@@ -104,13 +146,13 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     flex: 9,
                     child: (loaded)
                         ? CurvedScreenContainer(
-                            child: SingleChildScrollView(
+                            child: Expanded(
                               child: Container(
                                 padding: EdgeInsets.symmetric(
                                     vertical: height * .04,
                                     horizontal: width * .05),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                child: ListView(
+                                  //crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Image.asset(
                                       'assets/images/blog.png',
@@ -211,10 +253,14 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                                 child: WebViewPlus(
                                                   onWebViewCreated:
                                                       (controller) {
-                                                    this._controller =
-                                                        controller;
-                                                    controller.loadString(
-                                                        model.data.articleBody);
+                                                    if (this._controller ==
+                                                        null) {
+                                                      this._controller =
+                                                          controller;
+                                                      controller.loadString(
+                                                          model.data
+                                                              .articleBody);
+                                                    }
                                                   },
                                                   onPageFinished: (url) async {
                                                     String getHeightScript =
@@ -239,7 +285,10 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                                     print("Height:  " +
                                                         height.toString());
                                                     setState(() {
-                                                      _height = height;
+                                                      if (height < 5000)
+                                                        _height = height;
+                                                      else
+                                                        _height = 4500;
                                                     });
                                                   },
                                                   javascriptMode: JavascriptMode
