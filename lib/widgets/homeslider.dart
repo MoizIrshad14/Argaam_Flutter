@@ -53,7 +53,7 @@ class homeslider extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(right: 15),
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.all(6.0),
+            // margin: EdgeInsets.all(6.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               image: DecorationImage(
@@ -66,9 +66,8 @@ class homeslider extends StatelessWidget {
             child: Directionality(
               textDirection: getCurrentTextDirection(),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Spacer(),
                   Padding(
                     padding: EdgeInsets.fromLTRB(12.0, 15.0, 12.0, 0.0),
                     child: Row(children: [
@@ -86,7 +85,7 @@ class homeslider extends StatelessWidget {
                     ]),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(12.0, 5.0, 12.0, 5.0),
+                    padding: const EdgeInsets.fromLTRB(12.0, 5.0, 12.0, 0.0),
                     child: SizedBox(
                         child: Text(
                       this.model.data[index].title,
@@ -98,62 +97,58 @@ class homeslider extends StatelessWidget {
                     )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(6.0, 0.0, 12.0, 6.0),
-                    child: Text(
-                      "",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: white_text),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Icon(
+                                  Icons.access_time,
+                                  color: white_background,
+                                )),
+                            Text(
+                              model.data[index].postedDate,
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                  color: white_text),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              this.model.data[index].commentsCount.toString(),
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: white_text),
+                            ),
+                            Container(
+                                padding:
+                                    EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+                                child: //Icon(Icons.messenger_outline)
+                                    ImageIcon(
+                                        AssetImage("assets/icons/streamer.png"),
+                                        color: Colors.white)),
+                            Container(
+                                padding:
+                                    EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+                                child: Icon(Icons.favorite_outline,
+                                    color: Colors.white)),
+                            Container(
+                                padding:
+                                    EdgeInsets.fromLTRB(10.0, 0.0, 5.0, 0.0),
+                                child: Icon(Icons.arrow_upward,
+                                    color: Colors.white)),
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(left: 5),
-                              child: Icon(
-                                Icons.access_time,
-                                color: white_background,
-                              )),
-                          Text(
-                            model.data[index].postedDate,
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                                color: white_text),
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            this.model.data[index].commentsCount.toString(),
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: white_text),
-                          ),
-                          Container(
-                              padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
-                              child: //Icon(Icons.messenger_outline)
-                                  ImageIcon(
-                                      AssetImage("assets/icons/streamer.png"),
-                                      color: Colors.white)),
-                          Container(
-                              padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
-                              child: Icon(Icons.favorite_outline,
-                                  color: Colors.white)),
-                          Container(
-                              padding: EdgeInsets.fromLTRB(10.0, 0.0, 5.0, 0.0),
-                              child: Icon(Icons.arrow_upward,
-                                  color: Colors.white)),
-                        ],
-                      )
-                    ],
-                  )
                 ],
               ),
             ),

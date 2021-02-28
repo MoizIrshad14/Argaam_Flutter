@@ -9,8 +9,8 @@ class _CustomdropdownState extends State<Customdropdown> {
   String _selected;
   List<Map> _myJson = [
     {"id": '1', "image": "assets/images/flag.png", "name": "UAE"},
-    {"id": '2', "image": "assets/images/flag2.png", "name": "Egypt"},
-    {"id": '3', "image": "assets/images/flag3.png", "name": "Pakistan"},
+    {"id": '2', "image": "assets/images/flag.png", "name": "Egypt"},
+    {"id": '3', "image": "assets/images/flag.png", "name": "Pakistan"},
   ];
   @override
   Widget build(BuildContext context) {

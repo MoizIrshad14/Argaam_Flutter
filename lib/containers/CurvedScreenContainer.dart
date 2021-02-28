@@ -14,27 +14,27 @@ class CurvedScreenContainer extends StatelessWidget {
             height: constraints.maxHeight,
             width: width,
             color: Theme.of(context).scaffoldBackgroundColor,
-            padding: EdgeInsets.only(top: 10),
+            //padding: EdgeInsets.only(top: 10),
             child: SafeArea(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                  Expanded(
-                      flex: 1,
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: width * .05),
-                        decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.5),
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(BORDER_RADIUS)),
-                        ),
-                      )),
+                  // Expanded(
+                  //     flex: 1,
+                  //     child: Container(
+                  //       margin: EdgeInsets.symmetric(horizontal: width * .05),
+                  //       decoration: BoxDecoration(
+                  //         color:
+                  //             Theme.of(context).primaryColor.withOpacity(0.5),
+                  //         borderRadius: BorderRadius.vertical(
+                  //             top: Radius.circular(BORDER_RADIUS)),
+                  //       ),
+                  //     )),
                   Expanded(
                       flex: 70,
                       child: Container(
-                        padding: EdgeInsets.only(top: 15),
+                        //padding: EdgeInsets.only(top: 15),
                         decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.vertical(

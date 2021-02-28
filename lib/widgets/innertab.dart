@@ -68,7 +68,7 @@ class _InnerTabState extends State<InnerTab>
                         tabs: list),
                   ),
                   Container(
-                    height: _containerheight,
+                    height: _containerheight / 1.15,
                     child: TabBarView(
                       controller: _controller,
                       children: <Widget>[
