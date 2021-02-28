@@ -356,7 +356,9 @@ class _homepageState extends State<homepage>
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
                           image: DecorationImage(
-                            image: NetworkImage(data.articleImageUrl),
+                            image: data.articleImageUrl.contains("argaamplus")
+                                ? NetworkImage(data.articleImageUrl)
+                                : AssetImage('assets/images/blog.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
