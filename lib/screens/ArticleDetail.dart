@@ -157,7 +157,8 @@ class _ArticleDetailState extends State<ArticleDetail> {
                               padding: EdgeInsets.symmetric(
                                   vertical: height * .04,
                                   horizontal: width * .05),
-                              child: ListView(
+                              child: SingleChildScrollView(
+                                  child: Column(
                                 //crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Image.asset(
@@ -430,7 +431,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                                 ))
                                           ]))
                                 ],
-                              ),
+                              )),
                             ),
                           )
                         : Center(
