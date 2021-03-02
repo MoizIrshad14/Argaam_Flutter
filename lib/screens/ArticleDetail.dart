@@ -204,10 +204,13 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                                 children: [
                                                   Row(
                                                     children: [
-                                                      Image.asset(
-                                                        'assets/icons/ar_clock.png',
-                                                        fit: BoxFit.contain,
-                                                        width: arIconWidth,
+                                                      Icon(
+                                                        Icons.access_time,
+                                                        color: orange_border,
+                                                        size: 20,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 5,
                                                       ),
                                                       Text(
                                                         'قبل 45 دقيقة',
@@ -226,21 +229,22 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                                             .primaryTextTheme
                                                             .caption,
                                                       ),
-                                                      Image.asset(
-                                                        'assets/icons/ar_comment.png',
-                                                        fit: BoxFit.contain,
-                                                        width: arIconWidth,
+                                                      ImageIcon(
+                                                        AssetImage(
+                                                            "assets/icons/streamer.png"),
+                                                        color: orange_border,
+                                                        size: 20,
                                                       ),
-                                                      Image.asset(
-                                                        'assets/icons/ar_fav.png',
-                                                        fit: BoxFit.contain,
-                                                        width: arIconWidth,
+                                                      Icon(
+                                                        Icons.favorite_outline,
+                                                        color: orange_border,
+                                                        size: 20,
                                                       ),
-                                                      Image.asset(
-                                                        'assets/icons/ar_upload.png',
-                                                        fit: BoxFit.contain,
-                                                        width: arIconWidth,
-                                                      ),
+                                                      Icon(
+                                                        Icons.arrow_upward,
+                                                        color: orange_border,
+                                                        size: 20,
+                                                      )
                                                     ],
                                                   )
                                                 ],

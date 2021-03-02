@@ -64,7 +64,7 @@ class _loginState extends State<login> {
                             shape: CircleBorder(),
                             elevation: 0,
                             minimumSize: Size(50, 50),
-                            primary: light_grey_background,
+                            primary: Theme.of(context).scaffoldBackgroundColor,
                           ),
                           onPressed: () {
                             Navigator.pop(context);
@@ -74,7 +74,7 @@ class _loginState extends State<login> {
                             padding: const EdgeInsets.all(10.0),
                             child: Icon(
                               Icons.arrow_forward_ios,
-                              color: white_background,
+                              color: Theme.of(context).dividerTheme.color,
                             ),
                           )),
                     ],
@@ -119,7 +119,9 @@ class _loginState extends State<login> {
                             color: primary_orange, size: 25.0),
                         filled: true,
                         labelText: 'بريد الالكتروني',
-                        labelStyle: TextStyle(fontSize: 20),
+                        labelStyle: TextStyle(
+                            color: Theme.of(context).dividerTheme.color,
+                            fontSize: 20),
                       ),
                     ),
                   ),
@@ -145,7 +147,9 @@ class _loginState extends State<login> {
                             color: primary_orange, size: 25.0),
                         filled: true,
                         labelText: 'كلمة المرور',
-                        labelStyle: TextStyle(fontSize: 20),
+                        labelStyle: TextStyle(
+                            color: Theme.of(context).dividerTheme.color,
+                            fontSize: 20),
                         errorStyle: TextStyle(
                           color: primary_text_one,
                         ),
@@ -205,7 +209,7 @@ class _loginState extends State<login> {
                         height: 20,
                         width: 90,
                         child: Divider(
-                          color: Colors.black,
+                          color: Theme.of(context).dividerTheme.color,
                         ),
                       ),
                       Text("أو", style: TextStyle(fontSize: 18)),
@@ -213,7 +217,7 @@ class _loginState extends State<login> {
                         height: 20,
                         width: 90,
                         child: Divider(
-                          color: Colors.black,
+                          color: Theme.of(context).dividerTheme.color,
                         ),
                       ),
                     ],
@@ -271,10 +275,9 @@ class _loginState extends State<login> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text("فتح حساب جديد",
-                            style: TextStyle(color: black_text, fontSize: 20)),
+                        Text("فتح حساب جديد", style: TextStyle(fontSize: 20)),
                         Text("هل نسيت كلمة السر؟",
-                            style: TextStyle(color: black_text, fontSize: 20)),
+                            style: TextStyle(fontSize: 20)),
                       ],
                     ),
                   ),
